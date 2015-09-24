@@ -1,3 +1,5 @@
+import datetime
+from django.utils import timezone
 from django.db import models
 
 # Create your models here.
@@ -8,53 +10,52 @@ class Update(models.Model):
 class Programme(models.Model):
     """Used to store the programme for a specific date"""
     text = models.TextField()
-    last_updated = DateTimeField(auto_now = True,)
-    date = DateField(auto_now = False,)
+    last_updated = models.DateTimeField(auto_now = True,)
+    date = models.DateField(auto_now = False,)
 
 class Photo(models.Model):
     """Used to store information about a photo"""
-    link = URLField()
-    description = CharField(max_length = 200,)
+    link = models.URLField()
+    description = models.CharField(max_length = 200, blank = True,)
 
 class Song(models.Model):
     """Used to store information on the karaoke lyrics"""
-    title = CharField(max_length = 40, required = True,)
-    artist = CharField(max_length = 40, required = True,)
-    lyrics = TextField(required = True,)
-    video_link = URLField(null = True, required = False,)
-    spotify_link = URLField(null = True, required = False,)
+    title = models.CharField(max_length = 40,)
+    artist = models.CharField(max_length = 40,)
+    lyrics = models.TextField()
+    video_link = models.URLField(blank = True, null = True,)
+    spotify_link = models.URLField(blank = True, null = True,)
 
 class SongWish(models.Model):
     """Used to store the song wishes"""
-    title = CharField(max_length = 40, required = True,)
-    artist = CharField(max_length = 40, required = True,)
-    video_link = URLField(null = True, required = False,)
-    spotify_link = URLField(null = True, required = False,)
+    title = models.CharField(max_length = 40, )
+    artist = models.CharField(max_length = 40, )
+    video_link = models.URLField(blank = True, null = True)
+    spotify_link = models.URLField(blank = True, null = True)
 
 class ChatMessage(models.Model):
     """Used to store all chat messages of the session chat"""
-    name = CharField(max_length = 50,)
-    committee = CharField(max_length = 10,)
-    text = TextField()
+    name = models.CharField(max_length = 50, )
+    committee = models.CharField(max_length = 10, blank = True,)
+    text = models.TextField()
 
 class Article(models.Model):
     """Used to store articles """
-    title = CharField(max_length = 40, required = True,)
-    author = CharField(max_length = 40, required = True,)
-    author_country = CharField(max_length = 100, required = True,)
-    text = TextField(required = True,)
-    introduction = TextField(required = False, null = True,)
-    media_link = URLField(null = True, required = False,)
-    image_link = URLField(null = True, required = False,)
-    video_embed_code = TextField(null = true, required = False)
+    title = models.CharField(max_length = 40, )
+    author = models.CharField(max_length = 40, )
+    author_country = models.CharField(max_length = 100, )
+    text = models.TextField()
+    introduction = models.TextField(blank = True,)
+    media_link = models.URLField(blank = True, null = True)
+    image_link = models.URLField(blank = True, null = True)
+    video_embed_code = models.TextField(blank = True, )
 
 class Feedback(models.Model):
     """Used to store feedback from users"""
-    name = CharField(max_length = 50, null = True, required = False,)
-    text = TextField(required = True,)
+    name = models.CharField(max_length = 50, blank = True, )
+    text = models.TextField()
 
 class House(models.Model):
     """Used to store houses and corresponding points"""
-    name = CharField(max_length = 100,)
-    points = IntegerField()
-    
+    name = models.CharField(max_length = 100,)
+    points = models.IntegerField()
