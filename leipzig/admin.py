@@ -52,3 +52,13 @@ class ChatMessageAdmin(admin.ModelAdmin):
     """ Used to manage chat messages inside the Django Admin """
     list_display = ("text", "name", "committee",)
     search_fields = ("text", "name", "committee",)
+
+admin.site.register(Article, ArticleAdmin)
+admin.site.register(Photo, PhotoAdmin)
+admin.site.register(Feedback, FeedbackAdmin)
+admin.site.register(House, HouseAdmin)
+admin.site.register(Song, SongAdmin)
+admin.site.register(SongWish, SongWishAdmin)
+admin.site.register(Programme, ProgrammeAdmin)
+admin.site.register(Update, UpdateAdmin)
+admin.site.register(ChatMessage)
