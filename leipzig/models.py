@@ -23,3 +23,10 @@ class Song(models.Model):
     lyrics = TextField(required = True,)
     video_link = URLField(null = True, required = False,)
     spotify_link = URLField(null = True, required = False,)
+
+class SongWish(models.Model):
+    """Used to store the song wishes"""
+    title = CharField(max_length = 40, required = True,)
+    artist = CharField(max_length = 40, required = True,)
+    video_link = URLField(null = True, required = False,)
+    spotify_link = URLField(null = True, required = False,)
