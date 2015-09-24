@@ -47,3 +47,8 @@ class Article(models.Model):
     media_link = URLField(null = True, required = False,)
     image_link = URLField(null = True, required = False,)
     video_embed_code = TextField(null = true, required = False)
+
+class Feedback(models.Model):
+    """Used to store feedback from users"""
+    name = CharField(max_length = 50, null = True, required = False,)
+    text = TextField(required = True,)
