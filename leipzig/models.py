@@ -10,3 +10,8 @@ class Programme(models.Model):
     text = models.TextField()
     last_updated = DateTimeField(auto_now = True,)
     date = DateField(auto_now = False,)
+
+class Photo(models.Model):
+    """Used to store information about a photo"""
+    link = URLField()
+    description = CharField(max_length = 200,)
