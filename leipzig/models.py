@@ -30,3 +30,9 @@ class SongWish(models.Model):
     artist = CharField(max_length = 40, required = True,)
     video_link = URLField(null = True, required = False,)
     spotify_link = URLField(null = True, required = False,)
+
+class ChatMessage(models.Model):
+    """Used to store all chat messages of the session chat"""
+    name = CharField(max_length = 50,)
+    committee = CharField(max_length = 10,)
+    text = TextField()
