@@ -27,3 +27,7 @@ class HouseAdmin(admin.ModelAdmin):
     list_display = ("name", "points")
     search_fields = ("name", "points")
 
+class SongAdmin(admin.ModelAdmin):
+    """ Used to manage the songs in the Django Admin """
+    list_display = ("title", "artist",)
+    search_fields = ("title", "artist",)
