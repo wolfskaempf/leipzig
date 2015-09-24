@@ -10,3 +10,8 @@ class ArticleAdmin(admin.ModelAdmin):
     list_display = ("title", "author", "author_country")
     list_filter = ("author",)
     search_fields = ("title", "author", "author_country", "text", "introduction", "pk")
+
+class PhotoAdmin(admin.ModelAdmin):
+    """ Used to manage photos in the Django admin """
+    list_display = ("description", "pk", "link")
+    search_fields = ("description", "pk", "link")
