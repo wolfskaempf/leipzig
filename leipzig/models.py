@@ -36,3 +36,14 @@ class ChatMessage(models.Model):
     name = CharField(max_length = 50,)
     committee = CharField(max_length = 10,)
     text = TextField()
+
+class Article(models.Model):
+    """Used to store articles """
+    title = CharField(max_length = 40, required = True,)
+    author = CharField(max_length = 40, required = True,)
+    author_country = CharField(max_length = 100, required = True,)
+    text = TextField(required = True,)
+    introduction = TextField(required = False, null = True,)
+    media_link = URLField(null = True, required = False,)
+    image_link = URLField(null = True, required = False,)
+    video_embed_code = TextField(null = true, required = False)
