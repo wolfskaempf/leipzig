@@ -31,3 +31,9 @@ class SongAdmin(admin.ModelAdmin):
     """ Used to manage the songs in the Django Admin """
     list_display = ("title", "artist",)
     search_fields = ("title", "artist",)
+
+class SongWishAdmin(admin.ModelAdmin):
+    """ Used to manage the song wishes in the Django Admin """
+    list_display = ("title", "artist",)
+    search_fields = ("title", "artist",)
+    # verbose_name_plural = "SongWishes"
