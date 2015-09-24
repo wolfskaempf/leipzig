@@ -52,3 +52,9 @@ class Feedback(models.Model):
     """Used to store feedback from users"""
     name = CharField(max_length = 50, null = True, required = False,)
     text = TextField(required = True,)
+
+class House(models.Model):
+    """Used to store houses and corresponding points"""
+    name = CharField(max_length = 100,)
+    points = IntegerField()
+    
