@@ -37,3 +37,8 @@ class SongWishAdmin(admin.ModelAdmin):
     list_display = ("title", "artist",)
     search_fields = ("title", "artist",)
     # verbose_name_plural = "SongWishes"
+
+class ProgrammeAdmin(admin.ModelAdmin):
+    """ Used to manage the programme inside the Django Admin """
+    list_display = ("text", "date", "last_updated")
+    search_fields = ("text", "date", "last_updated")
