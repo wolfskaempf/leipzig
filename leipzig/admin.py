@@ -47,3 +47,8 @@ class UpdateAdmin(admin.ModelAdmin):
     """ Used to manage the latest updates inside the Django Admin """
     list_display = ("text", "pk")
     search_fields = ("text", "pk")
+
+class ChatMessageAdmin(admin.ModelAdmin):
+    """ Used to manage chat messages inside the Django Admin """
+    list_display = ("text", "name", "committee",)
+    search_fields = ("text", "name", "committee",)
