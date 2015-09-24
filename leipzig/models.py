@@ -15,3 +15,11 @@ class Photo(models.Model):
     """Used to store information about a photo"""
     link = URLField()
     description = CharField(max_length = 200,)
+
+class Song(models.Model):
+    """Used to store information on the karaoke lyrics"""
+    title = CharField(max_length = 40, required = True,)
+    artist = CharField(max_length = 40, required = True,)
+    lyrics = TextField(required = True,)
+    video_link = URLField(null = True, required = False,)
+    spotify_link = URLField(null = True, required = False,)
