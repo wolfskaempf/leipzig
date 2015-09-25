@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block header_title %}
+Programme
+{% endblock %}
+
+{% block content %}
+
+  {% if programmes %}
+    {% for programme in programmes %}
+    <div class="panel panel-material-purple-500">
+      <div class="panel-heading">
+        {{ programme.date }}
+      </div>
+      <div class="panel-body">
+        {{ programme.text }}
+      </div>
+    </div>
+    {% endfor %}
+  {% endif %}
+
+{% endblock %}
