@@ -11,3 +11,10 @@ def home(request):
 
     return render_to_response("home.html", context)
 
+def programme(request):
+    """ Serves the programme """
+    programmes = Programme.objects.all()
+
+    context = {"programmes": programmes}
+
+    return render_to_response("programme.html", context)
