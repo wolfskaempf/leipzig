@@ -1,3 +1,23 @@
 {% extends "base.html" %}
 
-a
+{% block header_title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+{% if updates %}
+<div class="panel panel-material-purple-500">
+    <div class="panel-heading">
+        Latest Updates
+    </div>
+    <div class="panel-body">
+      {% for update in updates %}
+      {{ update.time|date:"H:i A" }}: {{ update.text }} <br> <hr>
+      {% endfor %}
+    </div>
+</div>
+
+{% endif %}
+
+{% endblock %}
