@@ -13,7 +13,7 @@ Programme
         {{ programme.date }} <br><small>Last Updated: {{ programme.last_updated }}</small>
       </div>
       <div class="panel-body">
-        {{ programme.text }}
+        {{ programme.text|safe }}
       </div>
     </div>
     {% endfor %}
