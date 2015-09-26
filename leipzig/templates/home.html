@@ -13,7 +13,8 @@ Home
     </div>
     <div class="panel-body">
       {% for update in updates %}
-      {{ update.time|date:"H:i A" }}: {{ update.text }} <br> <hr>
+        {% if not update = updates.first %}<hr>{% endif %}
+        {{ update.time|date:"N j, H:i A" }}: {{ update.text }} <br>
       {% endfor %}
     </div>
 </div>
