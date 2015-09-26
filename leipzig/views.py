@@ -1,3 +1,4 @@
+import datetime
 from django.shortcuts import render, render_to_response
 
 from .models import *
@@ -13,7 +14,7 @@ def home(request):
 
 def programme(request):
     """ Serves the programme """
-    programmes = Programme.objects.all()
+    programmes = Programme.objects.all().order_by("date")
 
     context = {"programmes": programmes}
 
