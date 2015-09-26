@@ -14,7 +14,7 @@ Home
     <div class="panel-body">
       {% for update in updates %}
         {% if not update = updates.first %}<hr>{% endif %}
-        {{ update.time|date:"N j, H:i A" }}: {{ update.text }} <br>
+        <strong>{{ update.time|date:"N jS, H:i A" }}</strong> {{ update.text|safe }}
       {% endfor %}
     </div>
 </div>
