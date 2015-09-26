@@ -8,7 +8,10 @@ def home(request):
 
     updates = Update.objects.all()
 
-    context = {"updates": updates}
+    today = datetime.datetime.now().day
+    programme = Programme.objects.get(date__day = today)
+
+    context = {"updates": updates, "programme": programme}
 
     return render_to_response("home.html", context)
 
