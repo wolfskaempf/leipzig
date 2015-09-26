@@ -10,7 +10,7 @@ Programme
     {% for programme in programmes %}
     <div class="panel panel-material-purple-500">
       <div class="panel-heading">
-        {{ programme.date }}
+        {{ programme.date }} <br><small>Last Updated: {{ programme.last_updated }}</small>
       </div>
       <div class="panel-body">
         {{ programme.text }}
