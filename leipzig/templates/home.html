@@ -16,7 +16,7 @@ Home
         <div class="panel-body">
           {% for update in updates %}
             {% if not update = updates.first %}<hr>{% endif %}
-            <strong>{{ update.time|date:"N jS, H:i A" }}</strong> {{ update.text|safe }}
+            <strong>{{ update.time|date:"N jS, H:i A" }}</strong> {{ update.text|safe|linebreaks }}
           {% endfor %}
         </div> <!-- .panel-body -->
     </div> <!-- .panel -->
@@ -29,6 +29,9 @@ Home
       {% include "programme_widget.html" %}
     {% endif %}
   </div> <!-- .col-md-6 -->
+
+
+
 
 </div> <!-- .row -->
 
