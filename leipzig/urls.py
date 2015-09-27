@@ -20,4 +20,5 @@ from views import *
 urlpatterns = [
     url(r'^$', home, name='home'),
     url(r'^programme/$', programme, name='programme'),
+    url(r'^articles/$', articles, name='articles'),
 ]
