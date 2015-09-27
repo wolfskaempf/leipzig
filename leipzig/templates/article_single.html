@@ -22,6 +22,10 @@
   <p class="article-body">
     {{ article.text|safe|linebreaks }}
   </p>
+  <p class="text-right">
+    - {{ article.author }}
+  </p>
+  <a href="{% url 'leipzig:articles' %}"><button type="button" name="button" class="btn btn-material-purple-300 col-xs-12">Back to all articles</button></a>
 </div>
 
 
