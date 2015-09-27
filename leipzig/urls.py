@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^$', home, name='home'),
     url(r'^programme/$', programme, name='programme'),
     url(r'^articles/$', articles, name='articles'),
+    url(r'^article/(?P<pk>[0-9]+)/$', article_single, name='article_single'),
 ]

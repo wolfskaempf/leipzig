@@ -38,3 +38,11 @@ def articles(request):
     context = {"articles": articles}
 
     return render_to_response("articles.html", context)
+
+
+def article_single(request, pk):
+    """ Serves a single article """
+    article = Article.objects.get(pk=pk)
+    context = {"article": article}
+
+    return render_to_response("article_single.html", context)
