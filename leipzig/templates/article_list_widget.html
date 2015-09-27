@@ -1,5 +1,7 @@
-
-  <div class="col-xs-12 col-sm-6 col-lg-4">
+{% if articles %}
+<div class="row">
+  {% for article in articles %}
+  <div class="col-xs-12 col-sm-4">
       <div class="panel panel-material-purple-500">
         <div class="panel-heading">
            <h3 class="panel-title">{{ article.title }}</h3>
@@ -14,10 +16,14 @@
               {{ article.introduction|safe }}
             </p>
             {% if not article.external_link %}
-            <a href="#"><button class="btn btn-material-purple-300 col-xs-12">Read</button></a>
+            <a href="{% url 'leipzig:article_single' article.pk %}"><button class="btn btn-material-purple-300 col-xs-12">Read</button></a>
             {% else %}
             <a href="{{ article.external_link }}"><button class="btn btn-material-purple-300 col-xs-12">View external link</button></a>
             {% endif %}
         </div>
       </div>
   </div>
+  {% cycle "" "" "</div><div class='row'>"%}
+  {% endfor %}
+</div>
+{% endif %}
