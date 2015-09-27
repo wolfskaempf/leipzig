@@ -10,7 +10,7 @@ def home(request):
 
     today = datetime.datetime.now().day
 
-    if Programme.objects.filter(date__day = today):
+    if Programme.objects.filter(date__day = today).count() == 1:
         programme = Programme.objects.get(date__day = today)
     else:
         programme = None
