@@ -26,3 +26,10 @@ def programme(request):
     context = {"programmes": programmes}
 
     return render_to_response("programme.html", context)
+
+def articles(request):
+    """ Serves a list of recent articles """
+    articles = Article.objects.all().order_by("-published_on")
+    context = {"articles": articles}
+
+    return render_to_response("articles.html", context)
