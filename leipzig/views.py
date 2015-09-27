@@ -37,7 +37,7 @@ def articles(request):
     articles = Article.objects.all().order_by("-published_on")
     context = {"articles": articles}
 
-    return render_to_response("articles.html", context)
+    return render_to_response("article_list.html", context)
 
 
 def article_single(request, pk):
