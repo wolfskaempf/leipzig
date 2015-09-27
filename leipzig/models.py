@@ -42,12 +42,13 @@ class ChatMessage(models.Model):
 
 class Article(models.Model):
     """Used to store articles """
-    title = models.CharField(max_length = 40, )
-    author = models.CharField(max_length = 40, )
+    title = models.CharField(max_length = 100, )
+    author = models.CharField(max_length = 100, )
     author_country = models.CharField(max_length = 100, )
+    published_on = models.DateTimeField(auto_now = False)
     text = models.TextField()
     introduction = models.TextField(blank = True,)
-    media_link = models.URLField(blank = True, null = True)
+    external_link = models.URLField(blank = True, null = True)
     image_link = models.URLField(blank = True, null = True)
     video_embed_code = models.TextField(blank = True, )
 
