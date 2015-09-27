@@ -9,7 +9,11 @@ def home(request):
     updates = Update.objects.all()
 
     today = datetime.datetime.now().day
-    programme = Programme.objects.get(date__day = today)
+
+    if Programme.objects.filter(date__day = today):
+        programme = Programme.objects.get(date__day = today)
+    else:
+        programme = None
 
     context = {"updates": updates, "programme": programme}
 
