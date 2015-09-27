@@ -3,6 +3,6 @@
     {{ programme.date|date:"l, N jS" }} <br><small>Last Updated: {{ programme.last_updated }}</small>
   </div>
   <div class="panel-body">
-    {{ programme.text|safe }}
+    {{ programme.text|safe|linebreaks }}
   </div>
 </div>
