@@ -6,23 +6,31 @@ Home
 
 {% block content %}
 
-{% if updates %}
-<div class="panel panel-material-purple-500">
-    <div class="panel-heading">
-        Latest Updates
-    </div>
-    <div class="panel-body">
-      {% for update in updates %}
-        {% if not update = updates.first %}<hr>{% endif %}
-        <strong>{{ update.time|date:"N jS, H:i A" }}</strong> {{ update.text|safe }}
-      {% endfor %}
-    </div>
-</div>
+<div class="row">
+  {% if updates %}
+  <div class="col-sm-6">
+    <div class="panel panel-material-purple-500">
+        <div class="panel-heading">
+            Latest Updates
+        </div> <!-- .panel-heading -->
+        <div class="panel-body">
+          {% for update in updates %}
+            {% if not update = updates.first %}<hr>{% endif %}
+            <strong>{{ update.time|date:"N jS, H:i A" }}</strong> {{ update.text|safe }}
+          {% endfor %}
+        </div> <!-- .panel-body -->
+    </div> <!-- .panel -->
+  </div> <!-- .col-md-6 -->
 
-{% endif %}
+  <div class="col-sm-6">
+    {% endif %}
 
-{% if programme %}
-  {% include "programme_widget.html" %}
-{% endif %}
+    {% if programme %}
+      {% include "programme_widget.html" %}
+    {% endif %}
+  </div> <!-- .col-md-6 -->
+
+</div> <!-- .row -->
+
 
 {% endblock %}
