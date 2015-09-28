@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block header_title %}
+Song Wish
+{% endblock %}
+
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-dismissable alert-success shadow-z-2">
+  <p {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+</div>
+{% endfor %}
+<script type="text/javascript">
+window.setTimeout(function() {
+  $(".alert").fadeTo(500, 0).slideUp(500, function(){
+    $(this).remove();
+  });
+}, 5000);
+</script>
+{% endif %}
+
+<div class="panel panel-material-purple-500">
+  <div class="panel-heading">
+    <h3 class="panel-title">Song Wish Form</h3>
+  </div>
+  <div class="panel-body">
+    <form action="" method="post"> {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Submit" class="btn btn-success col-xs-12">
+    </form>
+  </div>
+</div>
+
+
+
+
+<!-- <form action method="post"> {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div class="fieldWrapper">
+        {{ form.title.errors }}
+        <label for="id_subject">Email subject:</label>
+        {{ form.title }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.artist.errors }}
+        <label for="id_message">Your message:</label>
+        {{ form.artist }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.video_link.errors }}
+        <label for="id_sender">Your email address:</label>
+        {{ form.video_link }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.spotify_link.errors }}
+        <label for="id_cc_myself">CC yourself?</label>
+        {{ form.spotify_link }}
+    </div>
+    <p><input type="submit" value="Send message" /></p>
+</form> -->
+
+{% endblock %}

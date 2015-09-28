@@ -1,7 +1,10 @@
 import datetime
 from django.shortcuts import render, render_to_response
+from django.contrib import messages
+
 
 from .models import *
+from .forms import *
 # Create your views here.
 def home(request):
     """ Serves the homepage """
@@ -20,7 +23,9 @@ def home(request):
     else:
         articles = None
 
-    context = {"updates": updates, "programme": programme, "articles": articles}
+    photo = Photo.objects.last()
+
+    context = {"updates": updates, "programme": programme, "articles": articles, "photo": photo}
 
     return render_to_response("home.html", context)
 
@@ -46,3 +51,18 @@ def article_single(request, pk):
     context = {"article": article}
 
     return render_to_response("article_single.html", context)
+
+
+def song_wish(request):
+    """ Handles song wishes and provides a form """
+    form = SongWishForm
+
+    context = {"form": form}
+
+    if request.method == "POST":
+        form = SongWishForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS, 'Your song wish was added!')
+
+    return render(request, "song_wish.html", context)
