@@ -30,9 +30,9 @@ window.setTimeout(function() {
     <div class="panel-body">
       <form action="" method="post" class="form">
           {% csrf_token %}
-          {% bootstrap_form form %}
+          {% bootstrap_form form show_label=False size="large" %}
           {% buttons %}
-              <button type="submit" class="btn btn-material-purple-500 col-xs-12">
+              <button type="submit" class="btn btn-material-purple-500 col-xs-12 btn-lg">
                   Submit
               </button>
           {% endbuttons %}
