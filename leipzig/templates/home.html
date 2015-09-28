@@ -8,28 +8,38 @@ Home
 
 <div class="row">
   {% if updates %}
-  <div class="col-sm-6">
-    <div class="panel panel-material-purple-500">
-        <div class="panel-heading">
-            Latest Updates
-        </div> <!-- .panel-heading -->
-        <div class="panel-body">
-          {% for update in updates %}
-            {% if not update = updates.first %}<hr>{% endif %}
-            <strong>{{ update.time|date:"N jS, H:i A" }}</strong> {{ update.text|safe|linebreaks }}
-          {% endfor %}
-        </div> <!-- .panel-body -->
-    </div> <!-- .panel -->
-  </div> <!-- .col-md-6 -->
+    <div class="col-sm-4">
+      <div class="panel panel-material-purple-500">
+          <div class="panel-heading">
+              <h3 class="panel-title">Latest Updates</h3>
+          </div> <!-- .panel-heading -->
+          <div class="panel-body">
+            {% for update in updates %}
+              {% if not update = updates.first %}<hr>{% endif %}
+              <strong>{{ update.time|date:"N jS, H:i A" }}</strong> {{ update.text|safe|linebreaks }}
+            {% endfor %}
+          </div> <!-- .panel-body -->
+      </div> <!-- .panel -->
+    </div> <!-- .col-md-6 -->
+  {% endif %}
 
-  <div class="col-sm-6">
-    {% endif %}
-
+  <div class="col-sm-4">
     {% if programme %}
       {% include "programme_widget.html" %}
     {% endif %}
   </div> <!-- .col-md-6 -->
 
+  {% if photo %}
+    <div class="col-sm-4">
+      <div class="panel panel-material-purple-500">
+          <div class="panel-heading">
+              <h3 class="panel-title">Photo of the day</h3>
+              <small>{{ photo.description }}</small>
+          </div> <!-- .panel-heading -->
+            <img class='img-responsive' src="{{ photo.link }}" alt="Photo of the day" />
+      </div> <!-- .panel -->
+    </div> <!-- .col-md-6 -->
+  {% endif %}
 
 
 
