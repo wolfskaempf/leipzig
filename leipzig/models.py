@@ -50,7 +50,7 @@ class Article(models.Model):
     introduction = models.TextField(blank = True,)
     external_link = models.URLField(blank = True, null = True)
     image_link = models.URLField(blank = True, null = True)
-    video_embed_code = models.TextField(blank = True, )
+    video_embed_src = models.TextField(blank = True, )
 
 class Feedback(models.Model):
     """Used to store feedback from users"""

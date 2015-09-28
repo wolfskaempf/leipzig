@@ -19,11 +19,16 @@
   <h2 class="lead">
     {{ article.introduction|safe|linebreaks }}
   </h2>
+  {% if article.video_embed_src %}
+  <div class="embed-responsive embed-responsive-16by9">
+    <iframe class="embed-responsive-item" {{ article.video_embed_src|safe }}"></iframe>
+  </div>
+  {% endif %}
   <p class="article-body">
     {{ article.text|safe|linebreaks }}
   </p>
   <p class="text-right">
-    - {{ article.author }}
+    - Written by {{ article.author }}
   </p>
   <a href="{% url 'leipzig:articles' %}"><button type="button" name="button" class="btn btn-material-purple-300 col-xs-12">Back to all articles</button></a>
 </div>
