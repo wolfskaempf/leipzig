@@ -74,3 +74,7 @@ def song_wish(request):
 def supporters(request):
     """ Shows the static supporters.html """
     return render_to_response("supporters.html")
+
+def dictionary(request):
+    """ Shows the static dictionary.html """
+    return render_to_response("dictionary.html")

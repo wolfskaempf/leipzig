@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^article/(?P<pk>[0-9]+)/$', article_single, name='article_single'),
     url(r'^wish/$', song_wish, name='song_wish'),
     url(r'^supporters/$', supporters, name='supporters'),
+    url(r'^dictionary/$', dictionary, name='dictionary'),
 ]
