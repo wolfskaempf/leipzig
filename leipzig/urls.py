@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^wish/$', song_wish, name='song_wish'),
     url(r'^supporters/$', supporters, name='supporters'),
     url(r'^dictionary/$', dictionary, name='dictionary'),
+    url(r'^feedback/$', feedback, name='feedback'),
 ]

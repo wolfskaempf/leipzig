@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block header_title %}
+Feedback
+{% endblock %}
+
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-dismissable alert-success shadow-z-2">
+  <p {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+</div>
+{% endfor %}
+<script type="text/javascript">
+window.setTimeout(function() {
+  $(".alert").fadeTo(500, 0).slideUp(500, function(){
+    $(this).remove();
+  });
+}, 5000);
+</script>
+{% endif %}
+
+<div class="col-md-6 col-md-offset-3">
+  <div class="panel panel-material-purple-500">
+    <div class="panel-heading">
+      <h3 class="panel-title">Feedback Form</h3>
+    </div>
+    <div class="panel-body">
+      <form action="" method="post" class="form">
+          {% csrf_token %}
+          <p>
+            You can give organisers feedback concerning the entire session using this form. The things you suggest here will be discussed during the organisers meetings.
+          </p>
+          <p>
+            Your name is optional, however giving us your name might help us to individually help you. We might also approach you to answer questions you ask in your feedback.
+          </p>
+          {% bootstrap_form form show_label=False size="large" %}
+          {% buttons %}
+              <button type="submit" class="btn btn-material-purple-500 col-xs-12 btn-lg">
+                  Submit
+              </button>
+          {% endbuttons %}
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- <form action method="post"> {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div class="fieldWrapper">
+        {{ form.title.errors }}
+        <label for="id_subject">Email subject:</label>
+        {{ form.title }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.artist.errors }}
+        <label for="id_message">Your message:</label>
+        {{ form.artist }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.video_link.errors }}
+        <label for="id_sender">Your email address:</label>
+        {{ form.video_link }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.spotify_link.errors }}
+        <label for="id_cc_myself">CC yourself?</label>
+        {{ form.spotify_link }}
+    </div>
+    <p><input type="submit" value="Send message" /></p>
+</form> -->
+
+{% endblock %}

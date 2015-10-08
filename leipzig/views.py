@@ -68,6 +68,21 @@ def song_wish(request):
     return render(request, "song_wish.html", context)
 
 
+def feedback(request):
+    """ Handles feedback and provides a form """
+    form = FeedbackForm
+
+    context = {"form": form}
+
+    if request.method == "POST":
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS, 'Your feedback has been sent to the organisers!')
+
+    return render(request, "feedback.html", context)
+
+
 
 ##### STATIC views
 
