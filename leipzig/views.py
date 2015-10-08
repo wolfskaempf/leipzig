@@ -66,3 +66,11 @@ def song_wish(request):
             messages.add_message(request, messages.SUCCESS, 'Your song wish was added!')
 
     return render(request, "song_wish.html", context)
+
+
+
+##### STATIC views
+
+def supporters(request):
+    """ Shows the static supporters.html """
+    return render_to_response("supporters.html")
