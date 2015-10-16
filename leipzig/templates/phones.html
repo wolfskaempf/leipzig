@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block header_title %}
+Emergency Phone Numbers
+{% endblock %}
+
+{% block content %}
+<div class="col-md-6 col-md-offset-3">
+  <div class="panel panel-material-purple-500">
+    <div class="panel-heading">
+      <h3 class="panel-title">Useful Phone Numbers</h3>
+    </div>
+    <div class="panel-body">
+      <p>
+        We recommend that you save all of these phone numbers to your phones contact list. It is also recommended to learn 110 and 112 by heart.
+      </p>
+      <table class="table">
+         <tr><td>Police</td><td>110</td></tr>
+         <tr><td>Emergency Rescue Service</td><td>112</td></tr>
+         <tr><td>Session Hotline</td><td>To be announced</td></tr>
+       </table>
+    </div>
+  </div>
+</div>
+{% endblock %}
