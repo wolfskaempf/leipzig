@@ -1,0 +1,25 @@
+{% if topics %}
+  <div class="row">
+    {% for topic in topics %}
+      <div class="col-xs-12 col-sm-4">
+          <div class="panel panel-material-purple-500">
+            <div class="panel-heading">
+               <h3 class="panel-title">{{ topic.committee_acronym }}</h3>
+               <small>{{ topic.committee_name }}</small>
+            </div>
+            {% if topic.image_link %}
+            <div class="col-xs-12" style="background: url('{{ topic.image_link }}') no-repeat center/cover; height: 150px; margin-bottom: 10px;">
+            </div>
+            {% endif %}
+            <div class="panel-body">
+                <p>
+                  {{ topic.topic|safe }}
+                </p>
+                <a href="{% url 'leipzig:topic_single' topic.pk %}"><button class="btn btn-material-purple-300 col-xs-12">Read</button></a>
+            </div>
+          </div>
+      </div>
+    {% cycle "" "" "</div><div class='row'>"%}
+    {% endfor %}
+  </div>
+{% endif %}
