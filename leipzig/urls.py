@@ -27,5 +27,7 @@ urlpatterns = [
     url(r'^dictionary/$', dictionary, name='dictionary'),
     url(r'^phones/$', phones, name='phones'),
     url(r'^houses/$', houses, name='houses'),
+    url(r'^topics/$', topics, name='topics'),
+    url(r'^topic/(?P<pk>[0-9]+)/$', topic_single, name='topic_single'),
     url(r'^feedback/$', feedback, name='feedback'),
 ]
