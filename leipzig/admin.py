@@ -53,6 +53,12 @@ class ChatMessageAdmin(admin.ModelAdmin):
     list_display = ("text", "name", "committee",)
     search_fields = ("text", "name", "committee",)
 
+class TopicAdmin(admin.ModelAdmin):
+    """ Used to manage topics and rationales inside the Django Admin """
+    list_display = ("committee_acronym", "topic",)
+    search_fields = ("committee_acronym", "topic",)
+
+
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Photo, PhotoAdmin)
 admin.site.register(Feedback, FeedbackAdmin)
@@ -62,3 +68,4 @@ admin.site.register(SongWish, SongWishAdmin)
 admin.site.register(Programme, ProgrammeAdmin)
 admin.site.register(Update, UpdateAdmin)
 admin.site.register(ChatMessage, ChatMessageAdmin)
+admin.site.register(Topic, TopicAdmin)
