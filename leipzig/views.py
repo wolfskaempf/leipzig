@@ -93,3 +93,7 @@ def supporters(request):
 def dictionary(request):
     """ Shows the static dictionary.html """
     return render_to_response("dictionary.html")
+
+def phones(request):
+    """ Shows the static phones.html """
+    return render_to_response("phones.html")
