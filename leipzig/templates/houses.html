@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block header_title %}
+Houses
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  {% for house in houses %}
+    {% include "house_widget.html" %}
+    {% cycle "" "" "</div><div class='row'>"%}
+  {% endfor %}
+</div>
+{% endblock %}

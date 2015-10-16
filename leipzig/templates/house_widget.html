@@ -1,0 +1,15 @@
+<div class="col-xs-12 col-sm-4 house">
+    <div class="panel panel-material-purple-500">
+      <div class="panel-heading">
+         <h3 class="panel-title">{{ house.name }}</h3>
+      </div>
+      {% if house.image_link %}
+      <div class="col-xs-12" style="background: url('{{ house.image_link }}') no-repeat center/cover; height: 150px; margin-bottom: 10px;">
+      </div>
+      {% endif %}
+      <div class="panel-body">
+        <h3>At the moment, {{ house.name }} has</h3>
+        <h1 class="house-points">{{ house.points }} Points</h1>
+      </div>
+    </div>
+</div>
