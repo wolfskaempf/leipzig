@@ -83,6 +83,13 @@ def feedback(request):
     return render(request, "feedback.html", context)
 
 
+def houses(request):
+    """ Serves a list of all houses and their points """
+
+    houses = House.objects.all().order_by("-points")
+    context = {"houses": houses}
+    return render_to_response("houses.html", context)
+
 
 ##### STATIC views
 
