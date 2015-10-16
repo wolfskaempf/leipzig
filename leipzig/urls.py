@@ -26,5 +26,6 @@ urlpatterns = [
     url(r'^supporters/$', supporters, name='supporters'),
     url(r'^dictionary/$', dictionary, name='dictionary'),
     url(r'^phones/$', phones, name='phones'),
+    url(r'^houses/$', houses, name='houses'),
     url(r'^feedback/$', feedback, name='feedback'),
 ]
