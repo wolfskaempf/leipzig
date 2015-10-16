@@ -90,6 +90,18 @@ def houses(request):
     context = {"houses": houses}
     return render_to_response("houses.html", context)
 
+def topics(request):
+    """ Serves a list of all topics """
+    topics = Topic.objects.all().order_by("committee_acronym")
+    context = {"topics": topics}
+    return render_to_response("topics.html", context)
+
+def topic_single(request, pk):
+    """ Serves a single topic and its rationales """
+    topic = Topic.objects.get(pk=pk)
+    context = {"topic": topic}
+    return render_to_response("topic_single.html", context)
+
 
 ##### STATIC views
 
