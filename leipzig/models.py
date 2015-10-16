@@ -54,6 +54,13 @@ class Article(models.Model):
 
 class Feedback(models.Model):
     """Used to store feedback from users"""
+
+    team_choices = (
+        ('OT', 'Organising Team'),
+        ('MT', 'Media Team'),
+    )
+
+    team = models.CharField(max_length="2", choices = team_choices,)
     name = models.CharField(max_length = 50, blank = True, )
     text = models.TextField()
 
