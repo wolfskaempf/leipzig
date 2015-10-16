@@ -55,8 +55,8 @@ def article_single(request, pk):
 
 def song_wish(request):
     """ Handles song wishes and provides a form """
-    form = SongWishForm
 
+    form = SongWishForm
     context = {"form": form}
 
     if request.method == "POST":
@@ -70,8 +70,8 @@ def song_wish(request):
 
 def feedback(request):
     """ Handles feedback and provides a form """
-    form = FeedbackForm
 
+    form = FeedbackForm
     context = {"form": form}
 
     if request.method == "POST":
@@ -85,7 +85,6 @@ def feedback(request):
 
 def houses(request):
     """ Serves a list of all houses and their points """
-
     houses = House.objects.all().order_by("-points")
     context = {"houses": houses}
     return render_to_response("houses.html", context)
