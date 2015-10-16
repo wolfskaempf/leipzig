@@ -60,4 +60,5 @@ class Feedback(models.Model):
 class House(models.Model):
     """Used to store houses and corresponding points"""
     name = models.CharField(max_length = 100,)
+    image_link = models.URLField(blank = True, null = True)
     points = models.IntegerField()
