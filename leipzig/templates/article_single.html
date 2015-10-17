@@ -33,5 +33,36 @@
   <a href="{% url 'leipzig:articles' %}"><button type="button" name="button" class="btn btn-material-purple-300 col-xs-12">Back to all articles</button></a>
 </div>
 
+<div class="container col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3 comments" >
+  {% if article.comment_set.all.count >= 2 %}
+    <h2>There are {{ article.comment_set.all.count }} comments</h2>
+  {% elif article.comment_set.all.count = 1 %}
+    <h2>There is one comment</h2>
+  {% else %}
+    <h2>Be the first to start the discussion</h2>
+  {% endif %}
+
+
+  {% for comment in article.comment_set.all %}
+    <div class="panel panel-material-purple-500">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{ comment.name }}</h3><small>{{ comment.timestamp|date:"l, N jS Y" }} at {{ comment.timestamp|date:"G:i A " }}</small>
+      </div>
+      <div class="panel-body">
+        <p>
+          {{ comment.text|linebreaks }}
+        </p>
+      </div>
+    </div>
+  {% endfor %}
+
+  {% if article.comment_set.all.count >= 1 %}
+    <h2>Contribute to the debate</h2>
+  {% endif %}
+
+  
+
+</div>
+
 
 {% endblock %}
