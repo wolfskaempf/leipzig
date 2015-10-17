@@ -52,6 +52,8 @@ class Article(models.Model):
     image_link = models.URLField(blank = True, null = True)
     video_embed_src = models.TextField(blank = True, )
 
+    def __unicode__(self):
+        return "".join([self.title, " by ", self.author])
 
 class Comment(models.Model):
     """Used to store comments on articles"""
