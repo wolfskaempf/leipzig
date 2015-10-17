@@ -21,6 +21,11 @@
             <a href="{{ article.external_link }}"><button class="btn btn-material-purple-300 col-xs-12">View external link</button></a>
             {% endif %}
         </div>
+        {% if article.comment_set.all.count >= 1 %}
+          <div class="panel-footer">
+              <small>There {{ article.comment_set.all.count|pluralize:"is,are" }} {{ article.comment_set.all.count }} comment{{ article.comment_set.all.count|pluralize }}.</small>
+          </div>
+        {% endif %}
       </div>
   </div>
   {% cycle "" "" "</div><div class='row'>"%}
