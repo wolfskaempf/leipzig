@@ -114,9 +114,9 @@ def topic_single(request, pk):
 
 ##### STATIC views
 
-def supporters(request):
-    """ Shows the static supporters.html """
-    return render_to_response("supporters.html")
+def partners(request):
+    """ Shows the static partners.html """
+    return render_to_response("partners.html")
 
 def dictionary(request):
     """ Shows the static dictionary.html """
