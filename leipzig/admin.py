@@ -58,6 +58,11 @@ class TopicAdmin(admin.ModelAdmin):
     list_display = ("committee_acronym", "topic",)
     search_fields = ("committee_acronym", "topic",)
 
+class CommentAdmin(admin.ModelAdmin):
+    """ Used to manage comments inside the Django Admin """
+    list_display = ("article", "name", "text", "timestamp")
+    search_fields = ("article", "name", "text", "timestamp")
+
 
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Photo, PhotoAdmin)
@@ -69,3 +74,4 @@ admin.site.register(Programme, ProgrammeAdmin)
 admin.site.register(Update, UpdateAdmin)
 admin.site.register(ChatMessage, ChatMessageAdmin)
 admin.site.register(Topic, TopicAdmin)
+admin.site.register(Comment, CommentAdmin)
