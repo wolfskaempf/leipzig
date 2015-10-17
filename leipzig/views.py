@@ -47,10 +47,20 @@ def articles(request):
 
 def article_single(request, pk):
     """ Serves a single article """
+    form = CommentForm
     article = Article.objects.get(pk=pk)
-    context = {"article": article}
 
-    return render_to_response("article_single.html", context)
+    if request.method == "POST":
+        response = CommentForm(request.POST)
+        if response.is_valid():
+            response = response.save(commit=False)
+            response.article = Article.objects.get(pk=pk)
+            response.save()
+            messages.add_message(request, messages.SUCCESS, 'Your comment has been saved!')
+
+    context = {"article": article, "form": form}
+
+    return render(request, "article_single.html", context)
 
 
 def song_wish(request):
