@@ -52,6 +52,15 @@ class Article(models.Model):
     image_link = models.URLField(blank = True, null = True)
     video_embed_src = models.TextField(blank = True, )
 
+
+class Comment(models.Model):
+    """Used to store comments on articles"""
+    article = models.ForeignKey("Article")
+    name = models.CharField(max_length = 100,)
+    text = models.TextField()
+    timestamp = models.DateTimeField(auto_now = True,)
+
+
 class Feedback(models.Model):
     """Used to store feedback from users"""
 
