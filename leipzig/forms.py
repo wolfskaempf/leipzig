@@ -2,7 +2,7 @@ from django import forms
 
 from django.forms import ModelForm
 
-from .models import SongWish, Feedback
+from .models import SongWish, Feedback, Comment
 
 class SongWishForm(ModelForm):
     """ Used to generate a form for song wishes """
@@ -16,3 +16,9 @@ class FeedbackForm(ModelForm):
     class Meta:
         model = Feedback
         fields = "__all__"
+
+class CommentForm(ModelForm):
+    """ Used to take in comments on articles """
+    class Meta:
+        model = Comment
+        fields = ("name", "text")
