@@ -73,7 +73,9 @@ class Feedback(models.Model):
 
     team = models.CharField(max_length="2", choices = team_choices,)
     name = models.CharField(max_length = 50, blank = True, )
+    committee = models.CharField(max_length = 10, blank = True, )
     text = models.TextField()
+    timestamp = models.DateTimeField(auto_now = True,)
 
 class House(models.Model):
     """Used to store houses and corresponding points"""
