@@ -7,8 +7,13 @@ Programme
 {% block content %}
 
   {% if programmes %}
+  <div class="row">
+
     {% for programme in programmes %}
-    {% include "programme_widget.html" %}
+      <div class="col-xs-12 col-sm-4">
+        {% include "programme_widget.html" %}
+      </div>
+      {% cycle "" "" "</div><div class='row'>"%}
     {% endfor %}
   {% endif %}
 
