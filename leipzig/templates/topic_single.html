@@ -15,7 +15,6 @@
 
 <div class="container col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3 article" >
   <h1>{{ topic.committee_name }}</h1>
-  <small>Written by {{ topic.author }} ({{ topic.author_country }})</small>
   <h2 class="lead">
     {{ topic.topic|safe|linebreaks }}
   </h2>
@@ -27,9 +26,6 @@
   <div class="article-body">
     {{ topic.rationale|safe|linebreaks }}
   </div>
-  <p class="text-right">
-    - Written by {{ topic.author }}
-  </p>
   <a href="{% url 'leipzig:topics' %}"><button type="button" name="button" class="btn btn-material-purple-300 col-xs-12">Back to all topics</button></a>
 </div>
 

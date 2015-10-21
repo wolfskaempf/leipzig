@@ -85,8 +85,6 @@ class Topic(models.Model):
     """Used to store topics and corresponding reationales"""
     committee_name = models.CharField(max_length = 100,)
     committee_acronym = models.CharField(max_length = 10,)
-    author = models.CharField(max_length = 100, )
-    author_country = models.CharField(max_length = 100, )
     topic = models.TextField()
     image_link = models.URLField(blank = True, null = True)
     video_embed_src = models.TextField(blank = True, )
