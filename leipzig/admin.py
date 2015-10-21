@@ -21,6 +21,8 @@ class FeedbackAdmin(admin.ModelAdmin):
     """ Used to manage the feedback from users in the Django Admin """
     list_display = ("name", "text", "committee","team", "timestamp")
     search_fields = ("name", "text", "committee","team", "timestamp")
+    list_filter = ("committee","team", "timestamp")
+
 
 class HouseAdmin(admin.ModelAdmin):
     """ Used to manage the points of houses in the Django Admin """
