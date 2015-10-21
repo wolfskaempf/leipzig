@@ -17,7 +17,7 @@ class HomeViewTests(TestCase):
 
     def test_home_view__with_empty_database(self):
         """
-        If the database is empty, the home page should still load properly.
+        If the database is empty, the home page should still load properly and show appropriate messages.
         """
         response = self.client.get(reverse("leipzig:home"))
         self.assertEqual(response.status_code, 200)
