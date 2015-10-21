@@ -19,8 +19,8 @@ class PhotoAdmin(admin.ModelAdmin):
 
 class FeedbackAdmin(admin.ModelAdmin):
     """ Used to manage the feedback from users in the Django Admin """
-    list_display = ("name", "text")
-    search_fields = ("name", "text")
+    list_display = ("name", "text", "committee","team", "timestamp")
+    search_fields = ("name", "text", "committee","team", "timestamp")
 
 class HouseAdmin(admin.ModelAdmin):
     """ Used to manage the points of houses in the Django Admin """
