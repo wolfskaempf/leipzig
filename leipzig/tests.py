@@ -26,3 +26,14 @@ class HomeViewTests(TestCase):
         self.assertContains(response, "There is no photo of the day.")
 
 
+class ArticleViewTests(TestCase):
+    def setUp(self):
+        return 0
+
+    def test_article_view_with_no_articles(self):
+        """
+        If there are no articles the page should still load and an error message should be shown.
+        """
+        response = self.client.get(reverse("leipzig:articles"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "There are no articles to be shown.")
