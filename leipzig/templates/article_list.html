@@ -6,6 +6,14 @@ Articles
 
 {% block content %}
 
+{% if not articles %}
+  <div class="alert alert-info alert-dismissible">
+    <p>
+      There are no articles to be shown.
+    </p>
+  </div>
+{% endif %}
+
 {% include "article_list_widget.html" %}
 
 
