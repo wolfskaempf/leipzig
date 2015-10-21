@@ -7,40 +7,63 @@ Home
 {% block content %}
 
 <div class="row">
-  {% if updates %}
     <div class="col-sm-4">
       <div class="panel panel-material-purple-500">
           <div class="panel-heading">
               <h3 class="panel-title">Latest Updates</h3>
           </div> <!-- .panel-heading -->
           <div class="panel-body">
-            {% for update in updates %}
-              {% if not update = updates.first %}<hr>{% endif %}
-              <strong>{{ update.time|date:"N jS, H:i A" }}</strong> {{ update.text|safe|linebreaks }}
-            {% endfor %}
+            {% if updates %}
+              {% for update in updates %}
+                {% if not update = updates.first %}<hr>{% endif %}
+                <strong>{{ update.time|date:"N jS, H:i A" }}</strong> {{ update.text|safe|linebreaks }}
+              {% endfor %}
+            {% else %}
+              <p>
+                There are currently no updates.
+              </p>
+            {% endif %}
           </div> <!-- .panel-body -->
       </div> <!-- .panel -->
     </div> <!-- .col-md-6 -->
-  {% endif %}
 
   <div class="col-sm-4">
     {% if programme %}
       {% include "programme_widget.html" %}
+    {% else %}
+    <div class="panel panel-material-purple-500">
+      <div class="panel-heading">
+        <h3 class="panel-title">Latest Programme</small>
+      </div>
+      <div class="panel-body">
+        <p>
+          There is no programme available for today.
+        </p>
+      </div>
+    </div>
     {% endif %}
   </div> <!-- .col-md-6 -->
 
-  {% if photo %}
+
     <div class="col-sm-4">
       <div class="panel panel-material-purple-500">
           <div class="panel-heading">
               <h3 class="panel-title">Photo of the day</h3>
-              <small>{{ photo.description }}</small>
+                {% if photo %}
+                  <small>{{ photo.description }}</small>
+                {% endif %}
           </div> <!-- .panel-heading -->
+            {% if photo %}
             <img class='img-responsive' src="{{ photo.link }}" alt="Photo of the day" />
+            {% else %}
+              <div class="panel-body">
+                <p>
+                  There is no photo of the day.
+                </p>
+              </div>
+            {% endif %}
       </div> <!-- .panel -->
     </div> <!-- .col-md-6 -->
-  {% endif %}
-
 
 
 </div> <!-- .row -->
