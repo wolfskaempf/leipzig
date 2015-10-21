@@ -64,6 +64,7 @@ class CommentAdmin(admin.ModelAdmin):
     """ Used to manage comments inside the Django Admin """
     list_display = ("article", "name", "text", "timestamp")
     search_fields = ("article", "name", "text", "timestamp")
+    list_filter = ("article", "timestamp", "name")
 
 
 admin.site.register(Article, ArticleAdmin)
