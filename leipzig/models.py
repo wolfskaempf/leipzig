@@ -82,6 +82,9 @@ class House(models.Model):
     name = models.CharField(max_length = 100,)
     image_link = models.URLField(blank = True, null = True)
     points = models.IntegerField()
+    quote = models.TextField(blank = True, null = True)
+    cite = models.CharField(max_length = 20, blank = True, null = True)
+    description = models.TextField(blank = True, null = True)
 
 class Topic(models.Model):
     """Used to store topics and corresponding reationales"""
