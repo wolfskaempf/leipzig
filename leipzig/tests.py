@@ -38,6 +38,30 @@ class ArticleViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "There are no articles to be shown.")
 
+class StaticViewTests(TestCase):
+
+    def test_dictionary_view(self):
+        """
+        Should display the dictionary.html file
+        """
+        response = self.client.get(reverse("leipzig:dictionary"))
+        self.assertEqual(response.status_code, 200)
+
+    def test_partners_view(self):
+        """
+        Should display the partners.html file
+        """
+        response = self.client.get(reverse("leipzig:partners"))
+        self.assertEqual(response.status_code, 200)
+
+    def test_phones_view(self):
+        """
+        Should display the phones.html file
+        """
+        response = self.client.get(reverse("leipzig:phones"))
+        self.assertEqual(response.status_code, 200)
+
+
     # def test_home_view_with_one_session_created(self):
     #     """
     #     This test will create a session with all the standard values and see whether it shows up properly
