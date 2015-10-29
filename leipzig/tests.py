@@ -38,6 +38,20 @@ class ArticleViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "There are no articles to be shown.")
 
+
+class TopicViewTests(TestCase):
+    def serUp(self):
+        return 0
+
+    def test_topic_view_with_no_topics(self):
+        """
+        If there are no topics the page should still load and an error message should be shown
+        """
+        response = self.client.get(reverse("leipzig:topics"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "There are no topics to be shown.")
+
+
 class StaticViewTests(TestCase):
 
     def test_dictionary_view(self):

@@ -6,6 +6,14 @@ Topics and Rationales
 
 {% block content %}
 
+{% if not topics %}
+  <div class="alert alert-info alert-dismissible">
+    <p>
+      There are no topics to be shown.
+    </p>
+  </div>
+{% endif %}
+
 {% include "topic_list_widget.html" %}
 
 
