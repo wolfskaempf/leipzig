@@ -23,9 +23,9 @@ def home(request):
     else:
         articles = None
 
-    photo = Photo.objects.last()
+    daily = OfTheDay.objects.last()
 
-    context = {"updates": updates, "programme": programme, "articles": articles, "photo": photo}
+    context = {"updates": updates, "programme": programme, "articles": articles, "daily": daily}
 
     return render_to_response("home.html", context)
 

@@ -14,9 +14,11 @@ class Programme(models.Model):
     last_updated = models.DateTimeField(auto_now = True,)
     date = models.DateField(auto_now = False,)
 
-class Photo(models.Model):
-    """Used to store information about a photo"""
-    link = models.URLField()
+class OfTheDay(models.Model):
+    """Used to store information about a of the day object"""
+    object_type = models.CharField(max_length = 10, default = "Photo")
+    external_link = models.URLField(blank = True)
+    image_link = models.URLField()
     description = models.CharField(max_length = 200, blank = True,)
 
 class Song(models.Model):

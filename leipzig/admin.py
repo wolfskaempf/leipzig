@@ -11,10 +11,10 @@ class ArticleAdmin(admin.ModelAdmin):
     list_filter = ("author",)
     search_fields = ("title", "author", "author_country", "text", "introduction", "pk")
 
-class PhotoAdmin(admin.ModelAdmin):
-    """ Used to manage photos in the Django admin """
-    list_display = ("description", "pk", "link")
-    search_fields = ("description", "pk", "link")
+class OfTheDayAdmin(admin.ModelAdmin):
+    """ Used to manage of the day objects in the Django admin """
+    list_display = ("description", "pk", "image_link")
+    search_fields = ("description", "pk", "image_link")
 
 
 class FeedbackAdmin(admin.ModelAdmin):
@@ -68,7 +68,7 @@ class CommentAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Article, ArticleAdmin)
-admin.site.register(Photo, PhotoAdmin)
+admin.site.register(OfTheDay, OfTheDayAdmin)
 admin.site.register(Feedback, FeedbackAdmin)
 admin.site.register(House, HouseAdmin)
 admin.site.register(Song, SongAdmin)

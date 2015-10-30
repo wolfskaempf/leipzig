@@ -48,15 +48,22 @@ Home
     <div class="col-sm-4">
       <div class="panel panel-material-purple-500">
           <div class="panel-heading">
-              <h3 class="panel-title">Photo of the day</h3>
-                {% if photo %}
-                  <small>{{ photo.description }}</small>
-                {% endif %}
-          </div> <!-- .panel-heading -->
-            {% if photo %}
-            <img class='img-responsive' src="{{ photo.link }}" alt="Photo of the day" />
+            {% if daily %}
+              <h3 class="panel-title">{{ daily.object_type }} of the day</h3>
+              <small>{{ daily.description }}</small>
             {% else %}
-              <div class="panel-body">
+              <h3 class="panel-title">Photo of the day</h3>
+            {% endif %}
+          </div> <!-- .panel-heading -->
+          {% if daily %}
+          <img class='img-responsive' src="{{ daily.image_link }}" alt="{{ daily.object_type }} of the day" />
+              {% if daily.external_link %}
+                <div class="panel-body">
+                  <a href="{{ daily.external_link }}"><button class="btn btn-material-purple-300 col-xs-12 margin-15">View {{ daily.object_type }}</button></a>
+                </div>
+              {% endif %}
+            {% else %}
+            <div class="panel-body">
                 <p>
                   There is no photo of the day.
                 </p>
