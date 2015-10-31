@@ -61,7 +61,7 @@ class ArticleListViewTests(TestCase):
 
     def test_article_view_with_one_article(self):
         """
-        If there is an article it should be shown and the error message should not.
+        If there is an article it should be shown and the error message should not
         """
         article = create_article()
         response = self.client.get(reverse("leipzig:articles"))
@@ -70,6 +70,25 @@ class ArticleListViewTests(TestCase):
         self.assertContains(response, demo_article_introduction)
         self.assertContains(response, demo_article_title)
         self.assertContains(response, demo_article_author)
+
+    def test_article_view_with_two_articles(self):
+        """
+        If there are two articles they should be shown and the error message should not
+        """
+        article = create_article()
+        article2 = create_article(title = "Say Cheese World", author = "Max Mustermann", author_country = "Switzerland", published_on = demo_article_published_on, introduction = "That's all, folks", text = demo_article_text, external_link = None, image_link = "http://i.imgur.com/i2MolXA.jpg", video_embed_src = demo_article_video_embed_src)
+        response = self.client.get(reverse("leipzig:articles"))
+        self.assertEqual(response.status_code, 200)
+        self.assertNotContains(response, "There are no articles to be shown.")
+        self.assertContains(response, demo_article_title)
+        self.assertContains(response, demo_article_author)
+        self.assertContains(response, demo_article_introduction)
+        self.assertContains(response, demo_article_external_link)
+        self.assertContains(response, "Say Cheese World")
+        self.assertContains(response, "Max Mustermann")
+        self.assertContains(response, "That's all, folks")
+        self.assertContains(response, "View Article")
+
 
 
 class ArticleSingleViewTests(TestCase):
