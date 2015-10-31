@@ -1,3 +1,5 @@
+# coding=UTF-8
+
 import datetime
 
 from django.test import TestCase
@@ -9,6 +11,25 @@ from views import *
 from .models import *
 # Create your tests here.
 
+# Under me you will find the functions which can easily create demo content.
+
+# Article
+demo_article_title = "Hello World"
+demo_article_author = "Tom Wolfskämpf"
+demo_article_author_country = "Germany"
+demo_article_published_on = timezone.now()
+demo_article_introduction = "Lorem ipsum dolor sit ameti."
+demo_article_text = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+demo_article_external_link = "http://leipzig2015is.eu"
+demo_article_image_link = "http://i.imgur.com/xBHM6Ps.jpg"
+demo_article_video_embed_src = 'src="https://www.youtube.com/embed/oHg5SJYRHA0"'
+
+def create_article(title = demo_article_title, author = demo_article_author, author_country = demo_article_author_country, published_on = demo_article_published_on, introduction = demo_article_introduction, text = demo_article_text, external_link = demo_article_external_link, image_link = demo_article_image_link, video_embed_src = demo_article_video_embed_src):
+    """
+    This will create an article.
+    """
+    return Article.objects.create(title = title, author = author, author_country = author_country, published_on = published_on, introduction = introduction, text = text, external_link = external_link, image_link = image_link, video_embed_src = video_embed_src)
+
 
 class HomeViewTests(TestCase):
 
@@ -17,7 +38,7 @@ class HomeViewTests(TestCase):
 
     def test_home_view__with_empty_database(self):
         """
-        If the database is empty, the home page should still load properly and show appropriate messages.
+        If the database is empty, the home page should still load properly and show appropriate messages
         """
         response = self.client.get(reverse("leipzig:home"))
         self.assertEqual(response.status_code, 200)
@@ -26,17 +47,48 @@ class HomeViewTests(TestCase):
         self.assertContains(response, "There is no photo of the day.")
 
 
-class ArticleViewTests(TestCase):
+class ArticleListViewTests(TestCase):
     def setUp(self):
         return 0
 
     def test_article_view_with_no_articles(self):
         """
-        If there are no articles the page should still load and an error message should be shown.
+        If there are no articles the page should still load and an error message should be shown
         """
         response = self.client.get(reverse("leipzig:articles"))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "There are no articles to be shown.")
+
+    def test_article_view_with_one_article(self):
+        """
+        If there is an article it should be shown and the error message should not.
+        """
+        article = create_article()
+        response = self.client.get(reverse("leipzig:articles"))
+        self.assertEqual(response.status_code, 200)
+        self.assertNotContains(response, "There are no articles to be shown.")
+        self.assertContains(response, demo_article_introduction)
+        self.assertContains(response, demo_article_title)
+        self.assertContains(response, demo_article_author)
+
+
+class ArticleSingleViewTests(TestCase):
+    def setUp(self):
+        self.article = create_article()
+
+    def test_article_single_view_with_one_article(self):
+        """
+        The article should be shown including all relevant information.
+        """
+        response = self.client.get(reverse("leipzig:article_single", args = [self.article.pk]))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, demo_article_title)
+        self.assertContains(response, demo_article_author)
+        self.assertContains(response, demo_article_author_country)
+        self.assertContains(response, demo_article_introduction)
+        self.assertContains(response, demo_article_text)
+        self.assertContains(response, demo_article_image_link)
+        self.assertContains(response, demo_article_video_embed_src)
 
 
 class TopicViewTests(TestCase):
