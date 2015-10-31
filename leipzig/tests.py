@@ -74,6 +74,28 @@ class HouseTestView(TestCase):
         self.assertContains(response, "There are no houses to be shown.")
 
 
+class SongWishTestView(TestCase):
+
+    def test_song_wish_view_loading(self):
+        """
+        When a user loads the song wish page the form should be shown
+        """
+        response = self.client.get(reverse("leipzig:song_wish"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Submit")
+
+class FeedbackTestView(TestCase):
+
+    def test_feedback_view_loading(self):
+        """
+        When a user loads the feedback page the form should be shown
+        """
+        response = self.client.get(reverse("leipzig:feedback"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Submit")
+
+
+
 class StaticViewTests(TestCase):
 
     def test_dictionary_view(self):
