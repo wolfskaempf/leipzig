@@ -87,7 +87,7 @@ class ArticleListViewTests(TestCase):
         self.assertContains(response, "Say Cheese World")
         self.assertContains(response, "Max Mustermann")
         self.assertContains(response, "That's all, folks")
-        self.assertContains(response, "View Article")
+        self.assertContains(response, "Read")
 
 
 
