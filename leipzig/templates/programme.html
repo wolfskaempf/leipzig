@@ -15,6 +15,13 @@ Programme
       </div>
       {% cycle "" "" "</div><div class='row'>"%}
     {% endfor %}
+  {% else %}
+  <div class="alert alert-info alert-dismissible">
+    <p>
+      There is no programme to be shown.
+    </p>
+  </div>
+
   {% endif %}
 
 {% endblock %}

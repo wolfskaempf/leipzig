@@ -52,6 +52,17 @@ class TopicViewTests(TestCase):
         self.assertContains(response, "There are no topics to be shown.")
 
 
+class ProgrammeTestView(TestCase):
+
+    def test_programme_view_with_no_programme(self):
+        """
+        If there are no programmes the page should still load and an error message should be shown
+        """
+        response = self.client.get(reverse("leipzig:programme"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "There is no programme to be shown.")
+
+
 class StaticViewTests(TestCase):
 
     def test_dictionary_view(self):
