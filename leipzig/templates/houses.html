@@ -19,10 +19,18 @@ Houses
       </p>
     </div>
   </div>
-<div class="row">
-  {% for house in houses %}
-    {% include "house_widget.html" %}
-    {% cycle "" "" "</div><div class='row'>"%}
-  {% endfor %}
-</div>
+  {% if houses %}
+    <div class="row">
+      {% for house in houses %}
+        {% include "house_widget.html" %}
+        {% cycle "" "" "</div><div class='row'>"%}
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="alert alert-info alert-dismissible">
+      <p>
+        There are no houses to be shown.
+      </p>
+    </div>
+  {% endif %}
 {% endblock %}
