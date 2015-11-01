@@ -2,7 +2,7 @@
 A web app for the 80th International Session of the European Youth Parliament
 ***
 ## What is `leipzig`?
-While programming this web app I tried to make it as easily modifiable as possible, allowing future sessions to fork it and to modify it to their liking. Of course it's main purpose was serving as a web app for the 80th International Session of the European Youth Parliament.
+While programming this web app I tried to make it as easily modifiable as possible, allowing future sessions to fork it and to modify it to their liking. However, it's main purpose was serving as a web app for the 80th International Session of the European Youth Parliament. In the future I might make it even more accessible to other sessions.
 ***
 ## Usage
 ### Standard
@@ -12,7 +12,7 @@ To run this web app locally, clone the repository, cd into it and execute the fo
 
 `python manage.py runserver`
 
-Please not that this is only a development server which should never be used for production scenarios.
+Please note that this is only a development server which should never be used for production scenarios.
 
 ### Troubleshooting
 
