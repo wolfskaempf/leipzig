@@ -88,7 +88,7 @@ def feedback(request):
         form = FeedbackForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.add_message(request, messages.SUCCESS, 'Your feedback has been sent to the organisers!')
+            messages.add_message(request, messages.SUCCESS, 'Your feedback has been saved!')
 
     return render(request, "feedback.html", context)
 
