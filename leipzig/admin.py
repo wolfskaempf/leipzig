@@ -44,6 +44,7 @@ class ProgrammeAdmin(admin.ModelAdmin):
     """ Used to manage the programme inside the Django Admin """
     list_display = ("text", "date", "last_updated")
     search_fields = ("text", "date", "last_updated")
+    ordering = ["date"]
 
 class UpdateAdmin(admin.ModelAdmin):
     """ Used to manage the latest updates inside the Django Admin """
