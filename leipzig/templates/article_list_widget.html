@@ -13,7 +13,7 @@
         {% endif %}
         <div class="panel-body">
             <p>
-              {{ article.introduction|safe }}
+              {% if article.committee_tag %}<span class="label label-material-purple-400">{{ article.committee_tag }}</span>{% endif %} {{ article.introduction|safe }}
             </p>
             {% if not article.external_link %}
             <a href="{% url 'leipzig:article_single' article.pk %}"><button class="btn btn-material-purple-300 col-xs-12">Read</button></a>

@@ -53,6 +53,7 @@ class Article(models.Model):
     external_link = models.URLField(blank = True, null = True)
     image_link = models.URLField(blank = True, null = True)
     video_embed_src = models.TextField(blank = True, )
+    committee_tag = models.CharField(blank = True, null = True, max_length = 10)
 
     def __unicode__(self):
         return "".join([self.title, " by ", self.author])
