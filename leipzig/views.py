@@ -18,8 +18,8 @@ def home(request):
     else:
         programme = None
 
-    if Article.objects.all():
-        articles = Article.objects.all().order_by("-published_on")[:3]
+    if Article.objects.filter(published=True):
+        articles = Article.objects.filter(published=True).order_by("-published_on")[:3]
     else:
         articles = None
 
@@ -39,7 +39,7 @@ def programme(request):
 
 def articles(request):
     """ Serves a list of all articles """
-    articles = Article.objects.all().order_by("-published_on")
+    articles = Article.objects.filter(published=True).order_by("-published_on")
     context = {"articles": articles}
 
     return render_to_response("article_list.html", context)

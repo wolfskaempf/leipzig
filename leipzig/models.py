@@ -48,6 +48,7 @@ class Article(models.Model):
     author = models.CharField(max_length = 100, )
     author_country = models.CharField(max_length = 100, )
     published_on = models.DateTimeField(auto_now = False)
+    published = models.BooleanField(default = True)
     introduction = models.TextField()
     text = models.TextField()
     external_link = models.URLField(blank = True, null = True)
