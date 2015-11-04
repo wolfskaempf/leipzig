@@ -30,4 +30,6 @@ urlpatterns = [
     url(r'^topics/$', topics, name='topics'),
     url(r'^topic/(?P<pk>[0-9]+)/$', topic_single, name='topic_single'),
     url(r'^feedback/$', feedback, name='feedback'),
+    url(r'^imprint/$', imprint, name='imprint'),
+    url(r'^datenschutzerklaerung/$', datenschutzerklaerung, name='datenschutzerklaerung'),
 ]

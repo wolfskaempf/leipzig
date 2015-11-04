@@ -125,3 +125,11 @@ def dictionary(request):
 def phones(request):
     """ Shows the static phones.html """
     return render_to_response("phones.html")
+
+def imprint(request):
+    """ Shows the static imprint.html """
+    return render_to_response("imprint.html")
+
+def datenschutzerklaerung(request):
+    """ Shows the static datenschutzerklaerung.html """
+    return render_to_response("datenschutzerklaerung.html")

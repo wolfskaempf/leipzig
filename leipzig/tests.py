@@ -190,6 +190,21 @@ class StaticViewTests(TestCase):
         response = self.client.get(reverse("leipzig:phones"))
         self.assertEqual(response.status_code, 200)
 
+    def test_imprint_view(self):
+        """
+        Should display the imprint.html file
+        """
+        response = self.client.get(reverse("leipzig:imprint"))
+        self.assertEqual(response.status_code, 200)
+
+    def test_datenschutzerklaerung_view(self):
+        """
+        Should display the datenschutzerklaerung.html file
+        """
+        response = self.client.get(reverse("leipzig:datenschutzerklaerung"))
+        self.assertEqual(response.status_code, 200)
+
+
 
     # def test_home_view_with_one_session_created(self):
     #     """
