@@ -9,7 +9,7 @@ from .forms import *
 def home(request):
     """ Serves the homepage """
 
-    updates = Update.objects.all()
+    updates = Update.objects.all().order_by("-time")
 
     today = datetime.datetime.now().day
 
