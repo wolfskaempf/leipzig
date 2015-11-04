@@ -4,12 +4,22 @@ from django.contrib import admin
 from .models import *
 
 
+class LinkAdmin(admin.ModelAdmin):
+    """ Used to manage links inside the Django Admin """
+    list_display = ("article", "button_text", "link")
+    search_fields = ("article", "button_text", "link")
+    list_filter = ("article", "link")
+
+class LinkInline(admin.TabularInline):
+    """ This allows the article admin to display link edit forms directly inside the article """
+    model = Link
 
 class ArticleAdmin(admin.ModelAdmin):
     """ Used to manage display options in the Django Admin """
     list_display = ("title", "author", "author_country")
     list_filter = ("author",)
     search_fields = ("title", "author", "author_country", "text", "introduction", "pk")
+    inlines = [LinkInline]
 
 class OfTheDayAdmin(admin.ModelAdmin):
     """ Used to manage of the day objects in the Django admin """
@@ -68,6 +78,7 @@ class CommentAdmin(admin.ModelAdmin):
     list_filter = ("article", "timestamp", "name")
 
 
+
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(OfTheDay, OfTheDayAdmin)
 admin.site.register(Feedback, FeedbackAdmin)
@@ -79,3 +90,4 @@ admin.site.register(Update, UpdateAdmin)
 admin.site.register(ChatMessage, ChatMessageAdmin)
 admin.site.register(Topic, TopicAdmin)
 admin.site.register(Comment, CommentAdmin)
+admin.site.register(Link, LinkAdmin)

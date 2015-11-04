@@ -66,6 +66,14 @@ class Comment(models.Model):
     text = models.TextField()
     timestamp = models.DateTimeField(auto_now = True,)
 
+class Link(models.Model):
+    """Used to store links which relate to articles"""
+    article = models.ForeignKey("Article")
+    button_text = models.CharField(max_length = 100,)
+    link = models.URLField()
+
+    def __unicode__(self):
+        return "".join([self.button_text, " linking to ", self.link])
 
 class Feedback(models.Model):
     """Used to store feedback from users"""

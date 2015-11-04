@@ -32,6 +32,14 @@
   <p class="text-right">
     - Written by {{ article.author }}
   </p>
+
+  {% if article.link_set.all.count >= 1 %}
+    <h2>Related Links</h2>
+    {% for link in article.link_set.all %}
+    <a href="{{ link.link }}"><button type="button" name="button" class="btn btn-material-purple-300 col-xs-12">{{ link.button_text }}</button></a>
+    {% endfor %}
+  {% endif %}
+
   <a href="{% url 'leipzig:articles' %}"><button type="button" name="button" class="btn btn-material-purple-300 col-xs-12">Back to all articles</button></a>
 </div>
 
