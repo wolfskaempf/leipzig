@@ -9,7 +9,11 @@ from .forms import *
 def home(request):
     """ Serves the homepage """
 
-    updates = Update.objects.all().order_by("-time")
+    view = "home" # This is used to determine whether some buttons should be shown in the latest updates part of the home page
+
+    updates = Update.objects.all() # Here we get all updates so we can count them
+    update_count = updates.count() # here we assign the total number of updates to the update_count
+    updates = updates.order_by("-time")[:2] # here we reduce the number of updates which should be shown to two
 
     today = datetime.datetime.now().day
 
@@ -25,7 +29,7 @@ def home(request):
 
     daily = OfTheDay.objects.last()
 
-    context = {"updates": updates, "programme": programme, "articles": articles, "daily": daily}
+    context = {"updates": updates, "programme": programme, "articles": articles, "daily": daily, "view": view, "update_count": update_count}
 
     return render_to_response("home.html", context)
 

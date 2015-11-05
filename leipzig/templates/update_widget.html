@@ -8,6 +8,9 @@
           {% if not update = updates.first %}<hr>{% endif %}
           <strong>{{ update.time|date:"N jS, H:i A" }}</strong> {{ update.text|safe|linebreaks }}
         {% endfor %}
+        {% if update_count > 2 and view == "home" %}
+          <a href="{% url 'leipzig:updates' %}"><button class="btn btn-material-purple-300 col-xs-12 margin-15">View All {{ update_count }} Updates</button></a>
+        {% endif %}
       {% else %}
         <p>
           There are currently no updates.
