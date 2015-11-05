@@ -29,6 +29,13 @@ def home(request):
 
     return render_to_response("home.html", context)
 
+def updates(request):
+    """ Serves the latest updates """
+    updates = Update.objects.all().order_by("-time")
+    context = {"updates": updates}
+
+    return render_to_response("updates.html", context)
+
 def programme(request):
     """ Serves the programme """
     programmes = Programme.objects.all().order_by("date")

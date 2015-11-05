@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block header_title %}
+Latest Updates
+{% endblock %}
+
+{% block content %}
+
+  {% if updates %}
+    <div class="col-sm-4 col-md-offset-4">
+      {% include "update_widget.html" %}
+    </div> <!-- .col-sm-4 -->
+  {% else %}
+  <div class="alert alert-info alert-dismissible">
+    <p>
+      There are no updates to be shown.
+    </p>
+  </div>
+
+  {% endif %}
+
+{% endblock %}

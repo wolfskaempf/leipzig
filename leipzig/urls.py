@@ -20,6 +20,7 @@ from views import *
 urlpatterns = [
     url(r'^$', home, name='home'),
     url(r'^programme/$', programme, name='programme'),
+    url(r'^updates/$', updates, name='updates'),
     url(r'^articles/$', articles, name='articles'),
     url(r'^article/(?P<pk>[0-9]+)/$', article_single, name='article_single'),
     url(r'^wish/$', song_wish, name='song_wish'),

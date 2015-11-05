@@ -134,6 +134,18 @@ class ProgrammeTestView(TestCase):
         self.assertContains(response, "There is no programme to be shown.")
 
 
+class UpdatesTestView(TestCase):
+
+    def test_updates_view_with_no_updates(self):
+        """
+        If there are no updates the page should still load and an error message should be shown
+        """
+        response = self.client.get(reverse("leipzig:updates"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "There are no updates to be shown.")
+
+
+
 class HouseTestView(TestCase):
 
     def test_house_view_with_no_houses(self):
