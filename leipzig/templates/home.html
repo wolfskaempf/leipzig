@@ -43,7 +43,7 @@ Home
           <img class='img-responsive' src="{{ daily.image_link }}" alt="{{ daily.object_type }} of the day" />
               {% if daily.external_link %}
                 <div class="panel-body">
-                  <a href="{{ daily.external_link }}"><button class="btn btn-material-purple-300 col-xs-12 margin-15">View {{ daily.object_type }}</button></a>
+                  <a target="_blank" href="{{ daily.external_link }}"><button class="btn btn-material-purple-300 col-xs-12 margin-15">View {{ daily.object_type }}</button></a>
                 </div>
               {% endif %}
             {% else %}
