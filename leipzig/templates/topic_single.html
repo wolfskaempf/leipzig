@@ -26,7 +26,7 @@
   <div class="article-body">
     {{ topic.rationale|safe|linebreaks }}
   </div>
-  <a href="{% url 'leipzig:topics' %}"><button type="button" name="button" class="btn btn-material-purple-300 col-xs-12">Back to all topics</button></a>
+  <a href="{% url 'leipzig:topics' %}"><button type="button" name="button" class="btn btn-material-{{ settings.app_colour }}-300 col-xs-12">Back to all topics</button></a>
 </div>
 
 

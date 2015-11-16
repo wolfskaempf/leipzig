@@ -17,7 +17,7 @@
 
 <div class="container col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3 article" >
   <h1>{{ article.title }}</h1>
-  <small>Published on {{ article.published_on|date:"l, N jS" }} by {{ article.author }} ({{ article.author_country }}) {% if article.committee_tag %}about <span class="label label-material-purple-400">{{ article.committee_tag }}</span>{% endif %} </small>
+  <small>Published on {{ article.published_on|date:"l, N jS" }} by {{ article.author }} ({{ article.author_country }}) {% if article.committee_tag %}about <span class="label label-material-{{ settings.app_colour }}-400">{{ article.committee_tag }}</span>{% endif %} </small>
   <h2 class="lead">
     {{ article.introduction|safe|linebreaks }}
   </h2>
@@ -36,11 +36,11 @@
   {% if article.link_set.all.count >= 1 %}
     <h2>Related Links</h2>
     {% for link in article.link_set.all %}
-    <a target="_blank" href="{{ link.link }}"><button type="button" name="button" class="btn btn-material-purple-300 col-xs-12">{{ link.button_text }}</button></a>
+    <a target="_blank" href="{{ link.link }}"><button type="button" name="button" class="btn btn-material-{{ settings.app_colour }}-300 col-xs-12">{{ link.button_text }}</button></a>
     {% endfor %}
   {% endif %}
 
-  <a href="{% url 'leipzig:articles' %}"><button type="button" name="button" class="btn btn-material-purple-300 col-xs-12">Back to all articles</button></a>
+  <a href="{% url 'leipzig:articles' %}"><button type="button" name="button" class="btn btn-material-{{ settings.app_colour }}-300 col-xs-12">Back to all articles</button></a>
 </div>
 
 <div class="container col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3 comments" >
@@ -52,7 +52,7 @@
 
 
   {% for comment in article.comment_set.all %}
-    <div class="panel panel-material-purple-500">
+    <div class="panel panel-material-{{ settings.app_colour }}-500">
       <div class="panel-heading">
         <h3 class="panel-title">{{ comment.name }}</h3><small>{{ comment.timestamp|date:"l, N jS Y" }} at {{ comment.timestamp|date:"G:i A " }}</small>
       </div>
@@ -76,7 +76,7 @@
   {% endfor %}
   {% endif %}
 
-  <div class="panel panel-material-purple-500">
+  <div class="panel panel-material-{{ settings.app_colour }}-500">
     <div class="panel-heading">
       <h3 class="panel-title">Comment Form</h3>
     </div>
@@ -88,7 +88,7 @@
           </p>
           {% bootstrap_form form show_label=False size="large" %}
           {% buttons %}
-              <button type="submit" class="btn btn-material-purple-500 col-xs-12 btn-lg">
+              <button type="submit" class="btn btn-material-{{ settings.app_colour }}-500 col-xs-12 btn-lg">
                   Submit
               </button>
           {% endbuttons %}

@@ -1,4 +1,4 @@
-<div class="panel panel-material-purple-500">
+<div class="panel panel-material-{{ settings.app_colour }}-500">
     <div class="panel-heading">
         <h3 class="panel-title">Latest Updates</h3>
     </div> <!-- .panel-heading -->
@@ -9,7 +9,7 @@
           <strong>{{ update.time|date:"N jS, H:i A" }}</strong> {{ update.text|safe|linebreaks }}
         {% endfor %}
         {% if update_count > 2 and view == "home" %}
-          <a href="{% url 'leipzig:updates' %}"><button class="btn btn-material-purple-300 col-xs-12 margin-15">View All {{ update_count }} Updates</button></a>
+          <a href="{% url 'leipzig:updates' %}"><button class="btn btn-material-{{ settings.app_colour }}-300 col-xs-12 margin-15">View All {{ update_count }} Updates</button></a>
         {% endif %}
       {% else %}
         <p>

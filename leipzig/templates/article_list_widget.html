@@ -2,7 +2,7 @@
 <div class="row">
   {% for article in articles %}
   <div class="col-xs-12 col-sm-4">
-      <div class="panel panel-material-purple-500">
+      <div class="panel panel-material-{{ settings.app_colour }}-500">
         <div class="panel-heading">
            <h3 class="panel-title">{{ article.title }}</h3>
            <small>Published on {{ article.published_on|date:"l, N jS" }} by {{ article.author }}</small>
@@ -13,12 +13,12 @@
         {% endif %}
         <div class="panel-body">
             <p>
-              {% if article.committee_tag %}<span class="label label-material-purple-400">{{ article.committee_tag }}</span>{% endif %} {{ article.introduction|safe }}
+              {% if article.committee_tag %}<span class="label label-material-{{ settings.app_colour }}-400">{{ article.committee_tag }}</span>{% endif %} {{ article.introduction|safe }}
             </p>
             {% if not article.external_link %}
-            <a href="{% url 'leipzig:article_single' article.pk %}"><button class="btn btn-material-purple-300 col-xs-12">Read</button></a>
+            <a href="{% url 'leipzig:article_single' article.pk %}"><button class="btn btn-material-{{ settings.app_colour }}-300 col-xs-12">Read</button></a>
             {% else %}
-            <a target="_blank" href="{{ article.external_link }}"><button class="btn btn-material-purple-300 col-xs-12">View external link</button></a>
+            <a target="_blank" href="{{ article.external_link }}"><button class="btn btn-material-{{ settings.app_colour }}-300 col-xs-12">View external link</button></a>
             {% endif %}
         </div>
         {% if article.comment_set.all.count >= 1 %}
