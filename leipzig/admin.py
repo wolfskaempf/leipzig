@@ -77,6 +77,12 @@ class CommentAdmin(admin.ModelAdmin):
     search_fields = ("article", "name", "text", "timestamp")
     list_filter = ("article", "timestamp", "name")
 
+class SettingAdmin(admin.ModelAdmin):
+    """ Used to manage Settings inside the Django Admin """
+    list_display = ("app_title", "app_colour")
+    search_fields = ("app_title", "app_colour")
+    list_filter = ("app_title", "app_colour")
+
 
 
 admin.site.register(Article, ArticleAdmin)
@@ -91,3 +97,4 @@ admin.site.register(ChatMessage, ChatMessageAdmin)
 admin.site.register(Topic, TopicAdmin)
 admin.site.register(Comment, CommentAdmin)
 admin.site.register(Link, LinkAdmin)
+admin.site.register(Setting, SettingAdmin)

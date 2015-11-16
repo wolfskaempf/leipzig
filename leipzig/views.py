@@ -6,11 +6,13 @@ from django.contrib import messages
 from .models import *
 from .forms import *
 # Create your views here.
+
 def home(request):
     """ Serves the homepage """
 
     view = "home" # This is used to determine whether some buttons should be shown in the latest updates part of the home page
 
+    settings = Setting.objects.last()
     updates = Update.objects.all() # Here we get all updates so we can count them
     update_count = updates.count() # here we assign the total number of updates to the update_count
     updates = updates.order_by("-time")[:2] # here we reduce the number of updates which should be shown to two
@@ -29,35 +31,39 @@ def home(request):
 
     daily = OfTheDay.objects.last()
 
-    context = {"updates": updates, "programme": programme, "articles": articles, "daily": daily, "view": view, "update_count": update_count}
+    context = {"updates": updates, "programme": programme, "articles": articles, "daily": daily, "view": view, "update_count": update_count, "settings": settings}
 
     return render_to_response("home.html", context)
 
 def updates(request):
     """ Serves the latest updates """
+    settings = Setting.objects.last()
     updates = Update.objects.all().order_by("-time")
-    context = {"updates": updates}
+    context = {"updates": updates, "settings": settings}
 
     return render_to_response("updates.html", context)
 
 def programme(request):
     """ Serves the programme """
+    settings = Setting.objects.last()
     programmes = Programme.objects.all().order_by("date")
 
-    context = {"programmes": programmes}
+    context = {"programmes": programmes, "settings": settings}
 
     return render_to_response("programme.html", context)
 
 def articles(request):
     """ Serves a list of all articles """
+    settings = Setting.objects.last()
     articles = Article.objects.filter(published=True).order_by("-published_on")
-    context = {"articles": articles}
+    context = {"articles": articles, "settings": settings}
 
     return render_to_response("article_list.html", context)
 
 
 def article_single(request, pk):
     """ Serves a single article """
+    settings = Setting.objects.last()
     form = CommentForm
     article = Article.objects.get(pk=pk)
 
@@ -69,16 +75,17 @@ def article_single(request, pk):
             response.save()
             messages.add_message(request, messages.SUCCESS, 'Your comment has been saved!')
 
-    context = {"article": article, "form": form}
+    context = {"article": article, "form": form, "settings": settings}
 
     return render(request, "article_single.html", context)
 
 
 def song_wish(request):
     """ Handles song wishes and provides a form """
+    settings = Setting.objects.last()
 
     form = SongWishForm
-    context = {"form": form}
+    context = {"form": form, "settings": settings}
 
     if request.method == "POST":
         form = SongWishForm(request.POST)
@@ -91,9 +98,9 @@ def song_wish(request):
 
 def feedback(request):
     """ Handles feedback and provides a form """
-
+    settings = Setting.objects.last()
     form = FeedbackForm
-    context = {"form": form}
+    context = {"form": form, "settings": settings}
 
     if request.method == "POST":
         form = FeedbackForm(request.POST)
@@ -106,20 +113,23 @@ def feedback(request):
 
 def houses(request):
     """ Serves a list of all houses and their points """
+    settings = Setting.objects.last()
     houses = House.objects.all().order_by("-points")
-    context = {"houses": houses}
+    context = {"houses": houses, "settings": settings}
     return render_to_response("houses.html", context)
 
 def topics(request):
     """ Serves a list of all topics """
+    settings = Setting.objects.last()
     topics = Topic.objects.all().order_by("committee_acronym")
-    context = {"topics": topics}
+    context = {"topics": topics, "settings": settings}
     return render_to_response("topics.html", context)
 
 def topic_single(request, pk):
     """ Serves a single topic and its rationales """
+    settings = Setting.objects.last()
     topic = Topic.objects.get(pk=pk)
-    context = {"topic": topic}
+    context = {"topic": topic, "settings": settings}
     return render_to_response("topic_single.html", context)
 
 
@@ -127,20 +137,30 @@ def topic_single(request, pk):
 
 def partners(request):
     """ Shows the static partners.html """
-    return render_to_response("partners.html")
+    settings = Setting.objects.last()
+    context = {"settings": settings}
+    return render_to_response("partners.html", context)
 
 def dictionary(request):
     """ Shows the static dictionary.html """
-    return render_to_response("dictionary.html")
+    settings = Setting.objects.last()
+    context = {"settings": settings}
+    return render_to_response("dictionary.html", context)
 
 def phones(request):
     """ Shows the static phones.html """
-    return render_to_response("phones.html")
+    settings = Setting.objects.last()
+    context = {"settings": settings}
+    return render_to_response("phones.html", context)
 
 def imprint(request):
     """ Shows the static imprint.html """
-    return render_to_response("imprint.html")
+    settings = Setting.objects.last()
+    context = {"settings": settings}
+    return render_to_response("imprint.html", context)
 
 def datenschutzerklaerung(request):
     """ Shows the static datenschutzerklaerung.html """
-    return render_to_response("datenschutzerklaerung.html")
+    settings = Setting.objects.last()
+    context = {"settings": settings}
+    return render_to_response("datenschutzerklaerung.html", context)

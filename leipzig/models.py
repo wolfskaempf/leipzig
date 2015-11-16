@@ -106,3 +106,9 @@ class Topic(models.Model):
     image_link = models.URLField(blank = True, null = True)
     video_embed_src = models.TextField(blank = True, )
     rationale = models.TextField()
+
+
+class Setting(models.Model):
+    """ Used to store general settings like name of the website and colour """
+    app_title = models.CharField(max_length = 25, default = "Leipzig 2015")
+    app_colour = models.CharField(max_length = 50, default = "purple")
