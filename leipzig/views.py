@@ -25,7 +25,7 @@ def home(request):
         programme = None
 
     if Article.objects.filter(published=True):
-        articles = Article.objects.filter(published=True).order_by("-published_on")[:3]
+        articles = Article.objects.filter(published=True).order_by("-published_on")[:6]
     else:
         articles = None
 
