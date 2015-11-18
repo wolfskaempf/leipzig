@@ -17,10 +17,10 @@ Home
     <div class="panel panel-material-{{ settings.app_colour }}-500">
         <div class="panel-heading">
           {% if daily %}
-            <h3 class="panel-title">{{ daily.object_type }} of the day</h3>
+            <h3 class="panel-title">Featured {{ daily.object_type }}</h3>
             <small>{{ daily.description }}</small>
           {% else %}
-            <h3 class="panel-title">Photo of the day</h3>
+            <h3 class="panel-title">Featured Photo</h3>
           {% endif %}
         </div> <!-- .panel-heading -->
         {% if daily %}
