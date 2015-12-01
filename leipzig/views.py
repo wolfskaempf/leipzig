@@ -17,10 +17,10 @@ def home(request):
     update_count = updates.count() # here we assign the total number of updates to the update_count
     updates = updates.order_by("-time")[:2] # here we reduce the number of updates which should be shown to two
 
-    today = datetime.datetime.now().day
+    today = datetime.datetime.now().date
 
-    if Programme.objects.filter(date__day = today).count() == 1:
-        programme = Programme.objects.get(date__day = today)
+    if Programme.objects.filter(date = today).count() == 1:
+        programme = Programme.objects.get(date = today)
     else:
         programme = None
 
