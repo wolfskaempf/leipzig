@@ -5,7 +5,7 @@
     <div class="panel-body">
       {% if updates %}
         {% for update in updates %}
-          {% if not update = updates.first %}<hr>{% endif %}
+          {% if not update == updates.first %}<hr>{% endif %}
           <strong>{{ update.time|date:"N jS, H:i A" }}</strong> {{ update.text|safe|linebreaks }}
         {% endfor %}
         {% if update_count > 2 and view == "home" %}

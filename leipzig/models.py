@@ -83,7 +83,7 @@ class Feedback(models.Model):
         ('MT', 'Media Team'),
     )
 
-    team = models.CharField(max_length="2", choices = team_choices,)
+    team = models.CharField(max_length=2, choices = team_choices,)
     name = models.CharField(max_length = 50, blank = True, )
     committee = models.CharField(max_length = 10, blank = True, )
     text = models.TextField()
