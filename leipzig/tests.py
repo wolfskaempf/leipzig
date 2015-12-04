@@ -111,7 +111,7 @@ class ArticleSingleViewTests(TestCase):
 
 
 class TopicViewTests(TestCase):
-    def serUp(self):
+    def setUp(self):
         return 0
 
     def test_topic_view_with_no_topics(self):
