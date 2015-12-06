@@ -8,6 +8,10 @@ While programming this web app I tried to make it as easily modifiable as possib
 ### Standard
 To run this web app locally, clone the repository, cd into it and execute the following commands.
 
+`pip install virtualenv`
+
+`virtualenv .`
+
 `source bin/activate`
 
 `python manage.py runserver`
