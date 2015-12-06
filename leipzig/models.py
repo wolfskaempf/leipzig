@@ -32,10 +32,10 @@ class OfTheDay(models.Model):
 
 class SongWish(models.Model):
     """Used to store the song wishes"""
-    title = models.CharField(max_length = 40, )
-    artist = models.CharField(max_length = 40, )
-    video_link = models.URLField(blank = True, null = True)
-    spotify_link = models.URLField(blank = True, null = True)
+    title = models.CharField(max_length = 40)
+    artist = models.CharField(max_length = 40)
+    video_link = models.URLField(blank = True)
+    spotify_link = models.URLField(blank = True)
 
     def __unicode__(self):
         return u'{0} by {1}'.format(self.title, self.artist)
@@ -43,17 +43,17 @@ class SongWish(models.Model):
 
 class Article(models.Model):
     """Used to store articles """
-    title = models.CharField(max_length = 100, )
-    author = models.CharField(max_length = 100, )
-    author_country = models.CharField(max_length = 100, )
+    title = models.CharField(max_length = 100)
+    author = models.CharField(max_length = 100)
+    author_country = models.CharField(max_length = 100)
     published_on = models.DateTimeField(auto_now = False)
     published = models.BooleanField(default = True)
     introduction = models.TextField()
     text = models.TextField()
-    external_link = models.URLField(blank = True, null = True)
-    image_link = models.URLField(blank = True, null = True)
-    video_embed_src = models.TextField(blank = True, )
-    committee_tag = models.CharField(blank = True, null = True, max_length = 10)
+    external_link = models.URLField(blank = True)
+    image_link = models.URLField(blank = True)
+    video_embed_src = models.TextField(blank = True)
+    committee_tag = models.CharField(blank = True, max_length = 10)
 
     def __unicode__(self):
         return u'{0} by {1}'.format(self.title, self.author)
@@ -86,8 +86,8 @@ class Feedback(models.Model):
     )
 
     team = models.CharField(max_length=2, choices = team_choices,)
-    name = models.CharField(max_length = 50, blank = True, )
-    committee = models.CharField(max_length = 10, blank = True, )
+    name = models.CharField(max_length = 50, blank = True)
+    committee = models.CharField(max_length = 10, blank = True)
     text = models.TextField()
     timestamp = models.DateTimeField(auto_now = True,)
 
@@ -97,11 +97,11 @@ class Feedback(models.Model):
 class House(models.Model):
     """Used to store houses and corresponding points"""
     name = models.CharField(max_length = 100,)
-    image_link = models.URLField(blank = True, null = True)
+    image_link = models.URLField(blank = True)
     points = models.IntegerField()
-    quote = models.TextField(blank = True, null = True)
-    cite = models.CharField(max_length = 100, blank = True, null = True)
-    description = models.TextField(blank = True, null = True)
+    quote = models.TextField(blank = True)
+    cite = models.CharField(max_length = 100, blank = True)
+    description = models.TextField(blank = True)
 
     def __unicode__(self):
         return u'{0}, {1} points'.format(self.name, self.points)
@@ -111,8 +111,8 @@ class Topic(models.Model):
     committee_name = models.CharField(max_length = 100,)
     committee_acronym = models.CharField(max_length = 10,)
     topic = models.TextField()
-    image_link = models.URLField(blank = True, null = True)
-    video_embed_src = models.TextField(blank = True, )
+    image_link = models.URLField(blank = True)
+    video_embed_src = models.TextField(blank = True)
     rationale = models.TextField()
 
     def __unicode__(self):
