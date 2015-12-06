@@ -14,6 +14,10 @@ To run this web app locally, clone the repository, cd into it and execute the fo
 
 `source bin/activate`
 
+`python manage.py migrate`
+
+`python manage.py createsuperuser`
+
 `python manage.py runserver`
 
 Please note that this is only a development server which should never be used for production scenarios.
