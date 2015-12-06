@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import *
+from .models import Update, Programme, OfTheDay, SongWish, Article, Comment, Link, Feedback, House, Topic, Setting
 
 
 class LinkAdmin(admin.ModelAdmin):
