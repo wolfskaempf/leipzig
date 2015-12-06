@@ -3,8 +3,8 @@ from django.shortcuts import render, render_to_response
 from django.contrib import messages
 
 
-from .models import *
-from .forms import *
+from .models import Update, Programme, OfTheDay, SongWish, Article, Comment, Link, Feedback, House, Topic, Setting
+from .forms import SongWishForm, FeedbackForm, CommentForm
 # Create your views here.
 
 def home(request):
