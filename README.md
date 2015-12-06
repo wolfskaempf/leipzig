@@ -1,4 +1,4 @@
-# leipzig [![Build Status](https://travis-ci.org/wolfskaempf/leipzig.svg?branch=master)](https://travis-ci.org/wolfskaempf/leipzig) [![Stories in Ready](https://badge.waffle.io/wolfskaempf/leipzig.png?label=ready&title=Ready)](https://waffle.io/wolfskaempf/leipzig)
+# leipzig [![Build Status](https://travis-ci.org/wolfskaempf/leipzig.svg?branch=master)](https://travis-ci.org/wolfskaempf/leipzig) [![Stories in Ready](https://badge.waffle.io/wolfskaempf/leipzig.png?label=ready&title=Ready)](https://waffle.io/wolfskaempf/leipzig) [![Code Issues](https://www.quantifiedcode.com/api/v1/project/f4a66d367ed64893af1f44817ef1dbf2/badge.svg)](https://www.quantifiedcode.com/app/project/f4a66d367ed64893af1f44817ef1dbf2)
 A web app for the 80th International Session of the European Youth Parliament
 ***
 ## What is `leipzig`?
