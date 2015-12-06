@@ -8,11 +8,17 @@ class Update(models.Model):
     time = models.DateTimeField(auto_now = True,)
     text = models.TextField()
 
+    def __unicode__(self):
+        return u'{0}, {1}'.format(self.text, self.time)
+
 class Programme(models.Model):
     """Used to store the programme for a specific date"""
     text = models.TextField()
     last_updated = models.DateTimeField(auto_now = True,)
     date = models.DateField(auto_now = False,)
+
+    def __unicode__(self):
+        return self.date
 
 class OfTheDay(models.Model):
     """Used to store information about a of the day object"""
@@ -21,13 +27,8 @@ class OfTheDay(models.Model):
     image_link = models.URLField()
     description = models.CharField(max_length = 200, blank = True,)
 
-class Song(models.Model):
-    """Used to store information on the karaoke lyrics"""
-    title = models.CharField(max_length = 40,)
-    artist = models.CharField(max_length = 40,)
-    lyrics = models.TextField()
-    video_link = models.URLField(blank = True, null = True,)
-    spotify_link = models.URLField(blank = True, null = True,)
+    def __unicode__(self):
+        return u'{0}, {1}'.format(self.object_type, self.description)
 
 class SongWish(models.Model):
     """Used to store the song wishes"""
@@ -36,11 +37,9 @@ class SongWish(models.Model):
     video_link = models.URLField(blank = True, null = True)
     spotify_link = models.URLField(blank = True, null = True)
 
-class ChatMessage(models.Model):
-    """Used to store all chat messages of the session chat"""
-    name = models.CharField(max_length = 50, )
-    committee = models.CharField(max_length = 10, blank = True,)
-    text = models.TextField()
+    def __unicode__(self):
+        return u'{0} by {1}'.format(self.title, self.artist)
+
 
 class Article(models.Model):
     """Used to store articles """
@@ -57,7 +56,7 @@ class Article(models.Model):
     committee_tag = models.CharField(blank = True, null = True, max_length = 10)
 
     def __unicode__(self):
-        return "".join([self.title, " by ", self.author])
+        return u'{0} by {1}'.format(self.title, self.author)
 
 class Comment(models.Model):
     """Used to store comments on articles"""
@@ -66,6 +65,9 @@ class Comment(models.Model):
     text = models.TextField()
     timestamp = models.DateTimeField(auto_now = True,)
 
+    def __unicode__(self):
+        return u'{0} says {1}'.format(self.name, self.text)
+
 class Link(models.Model):
     """Used to store links which relate to articles"""
     article = models.ForeignKey("Article")
@@ -73,7 +75,7 @@ class Link(models.Model):
     link = models.URLField()
 
     def __unicode__(self):
-        return "".join([self.button_text, " linking to ", self.link])
+        return u'{0} linking to {1}'.format(self.button_text, self.link)
 
 class Feedback(models.Model):
     """Used to store feedback from users"""
@@ -89,6 +91,9 @@ class Feedback(models.Model):
     text = models.TextField()
     timestamp = models.DateTimeField(auto_now = True,)
 
+    def __unicode__(self):
+        return u'{0} says {1}'.format(self.name, self.text)
+
 class House(models.Model):
     """Used to store houses and corresponding points"""
     name = models.CharField(max_length = 100,)
@@ -97,6 +102,9 @@ class House(models.Model):
     quote = models.TextField(blank = True, null = True)
     cite = models.CharField(max_length = 100, blank = True, null = True)
     description = models.TextField(blank = True, null = True)
+
+    def __unicode__(self):
+        return u'{0}, {1} points'.format(self.name, self.points)
 
 class Topic(models.Model):
     """Used to store topics and corresponding reationales"""
@@ -107,8 +115,14 @@ class Topic(models.Model):
     video_embed_src = models.TextField(blank = True, )
     rationale = models.TextField()
 
+    def __unicode__(self):
+        return self.committee_acronym
+
 
 class Setting(models.Model):
     """ Used to store general settings like name of the website and colour """
     app_title = models.CharField(max_length = 25, default = "Leipzig 2015")
     app_colour = models.CharField(max_length = 50, default = "purple")
+
+    def __unicode__(self):
+        return u'{0}, {1}'.format(self.app_title, self.app_colour)
