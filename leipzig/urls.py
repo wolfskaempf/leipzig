@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 
-from views import *
+from views import home, updates, programme, articles, article_single, song_wish, feedback, houses, topics, topic_single, partners, dictionary, phones, imprint, datenschutzerklaerung
 
 urlpatterns = [
     url(r'^$', home, name='home'),
