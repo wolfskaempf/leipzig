@@ -8,6 +8,9 @@
 
         <meta name="description" content="{{ settings.app_meta_description }}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% if settings.app_chrome_navbar_theme_hex_colour %}
+        <meta name="theme-color" content="{{ settings.app_chrome_navbar_theme_hex_colour }}">
+        {% endif %}
 
         {% load staticfiles %}
         <link rel="apple-touch-icon" href="{% static 'leipzig/images/apple-touch-icon.png' %}">

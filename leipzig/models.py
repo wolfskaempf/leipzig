@@ -125,6 +125,7 @@ class Setting(models.Model):
     app_colour = models.CharField(max_length = 50, default = "purple")
     app_meta_description = models.TextField(blank = True)
     app_analytics = models.TextField(blank = True)
+    app_chrome_navbar_theme_hex_colour = models.CharField(max_length = 10, blank = True)
 
 
     def __unicode__(self):
