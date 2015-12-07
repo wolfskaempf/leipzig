@@ -3,7 +3,7 @@ from django.shortcuts import render, render_to_response
 from django.contrib import messages
 
 
-from .models import Update, Programme, OfTheDay, SongWish, Article, Comment, Link, Feedback, House, Topic, Setting
+from .models import Update, Programme, FeaturedItem, SongWish, Article, Comment, Link, Feedback, House, Topic, Setting
 from .forms import SongWishForm, FeedbackForm, CommentForm
 # Create your views here.
 
@@ -29,7 +29,7 @@ def home(request):
     else:
         articles = None
 
-    daily = OfTheDay.objects.last()
+    daily = FeaturedItem.objects.last()
 
     context = {"updates": updates, "programme": programme, "articles": articles, "daily": daily, "view": view, "update_count": update_count, "settings": settings}
 

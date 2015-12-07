@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Update, Programme, OfTheDay, SongWish, Article, Comment, Link, Feedback, House, Topic, Setting
+from .models import Update, Programme, FeaturedItem, SongWish, Article, Comment, Link, Feedback, House, Topic, Setting
 
 
 class LinkAdmin(admin.ModelAdmin):
@@ -21,8 +21,8 @@ class ArticleAdmin(admin.ModelAdmin):
     search_fields = ("title", "author", "author_country", "text", "introduction", "pk")
     inlines = [LinkInline]
 
-class OfTheDayAdmin(admin.ModelAdmin):
-    """ Used to manage of the day objects in the Django admin """
+class FeaturedItemAdmin(admin.ModelAdmin):
+    """ Used to manage featured objects in the Django admin """
     list_display = ("description", "pk", "image_link")
     search_fields = ("description", "pk", "image_link")
 
@@ -75,7 +75,7 @@ class SettingAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Article, ArticleAdmin)
-admin.site.register(OfTheDay, OfTheDayAdmin)
+admin.site.register(FeaturedItem, FeaturedItemAdmin)
 admin.site.register(Feedback, FeedbackAdmin)
 admin.site.register(House, HouseAdmin)
 admin.site.register(SongWish, SongWishAdmin)

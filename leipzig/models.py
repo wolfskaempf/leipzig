@@ -20,7 +20,7 @@ class Programme(models.Model):
     def __unicode__(self):
         return self.date
 
-class OfTheDay(models.Model):
+class FeaturedItem(models.Model):
     """Used to store information about a of the day object"""
     object_type = models.CharField(max_length = 10, default = "Photo")
     external_link = models.URLField(blank = True)

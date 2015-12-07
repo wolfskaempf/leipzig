@@ -8,7 +8,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.models import AnonymousUser, User
 
 from views import home, updates, programme, articles, article_single, song_wish, feedback, houses, topics, topic_single, partners, dictionary, phones, imprint, datenschutzerklaerung
-from .models import Update, Programme, OfTheDay, SongWish, Article, Comment, Link, Feedback, House, Topic, Setting
+from .models import Update, Programme, FeaturedItem, SongWish, Article, Comment, Link, Feedback, House, Topic, Setting
 # Create your tests here.
 
 # Under me you will find the functions which can easily create demo content.
