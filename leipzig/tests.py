@@ -33,8 +33,8 @@ def create_article(title = demo_article_title, author = demo_article_author, aut
 
 class HomeViewTests(TestCase):
 
-    def setUp(self):
-        return 0
+    # def setUp(self):
+    #     return 0
 
     def test_home_view__with_empty_database(self):
         """
@@ -48,8 +48,8 @@ class HomeViewTests(TestCase):
 
 
 class ArticleListViewTests(TestCase):
-    def setUp(self):
-        return 0
+    # def setUp(self):
+    #     return 0
 
     def test_article_view_with_no_articles(self):
         """
@@ -93,6 +93,9 @@ class ArticleListViewTests(TestCase):
 
 class ArticleSingleViewTests(TestCase):
     def setUp(self):
+        """
+        This function creates an article in the database before each test runs.
+        """
         self.article = create_article()
 
     def test_article_single_view_with_one_article(self):
@@ -111,8 +114,8 @@ class ArticleSingleViewTests(TestCase):
 
 
 class TopicViewTests(TestCase):
-    def setUp(self):
-        return 0
+    # def setUp(self):
+    #     return 0
 
     def test_topic_view_with_no_topics(self):
         """
