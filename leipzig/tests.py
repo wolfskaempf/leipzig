@@ -32,6 +32,9 @@ def create_article(title = demo_article_title, author = demo_article_author, aut
 
 
 class HomeViewTests(TestCase):
+    """
+    This TestCase contains all tests of the above mentioned View
+    """
 
     # def setUp(self):
     #     return 0
@@ -48,6 +51,9 @@ class HomeViewTests(TestCase):
 
 
 class ArticleListViewTests(TestCase):
+    """
+    This TestCase contains all tests of the above mentioned View
+    """
     # def setUp(self):
     #     return 0
 
@@ -92,6 +98,9 @@ class ArticleListViewTests(TestCase):
 
 
 class ArticleSingleViewTests(TestCase):
+    """
+    This TestCase contains all tests of the above mentioned View
+    """
     def setUp(self):
         """
         This function creates an article in the database before each test runs.
@@ -114,6 +123,9 @@ class ArticleSingleViewTests(TestCase):
 
 
 class TopicViewTests(TestCase):
+    """
+    This TestCase contains all tests of the above mentioned View
+    """
     # def setUp(self):
     #     return 0
 
@@ -127,6 +139,9 @@ class TopicViewTests(TestCase):
 
 
 class ProgrammeTestView(TestCase):
+    """
+    This TestCase contains all tests of the above mentioned View
+    """
 
     def test_programme_view_with_no_programme(self):
         """
@@ -138,6 +153,9 @@ class ProgrammeTestView(TestCase):
 
 
 class UpdatesTestView(TestCase):
+    """
+    This TestCase contains all tests of the above mentioned View
+    """
 
     def test_updates_view_with_no_updates(self):
         """
@@ -150,6 +168,9 @@ class UpdatesTestView(TestCase):
 
 
 class HouseTestView(TestCase):
+    """
+    This TestCase contains all tests of the above mentioned View
+    """
 
     def test_house_view_with_no_houses(self):
         """
@@ -161,6 +182,9 @@ class HouseTestView(TestCase):
 
 
 class SongWishTestView(TestCase):
+    """
+    This TestCase contains all tests of the above mentioned View
+    """
 
     def test_song_wish_view_loading(self):
         """
@@ -171,6 +195,9 @@ class SongWishTestView(TestCase):
         self.assertContains(response, "Submit")
 
 class FeedbackTestView(TestCase):
+    """
+    This TestCase contains all tests of the above mentioned View
+    """
 
     def test_feedback_view_loading(self):
         """
@@ -183,6 +210,9 @@ class FeedbackTestView(TestCase):
 
 
 class StaticViewTests(TestCase):
+    """
+    This TestCase contains all tests of the above mentioned View
+    """
 
     def test_dictionary_view(self):
         """
