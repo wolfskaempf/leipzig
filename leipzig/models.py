@@ -5,7 +5,7 @@ from django.db import models
 # Create your models here.
 class Update(models.Model):
     """Used to store updates to be shown to users"""
-    time = models.DateTimeField(auto_now = True,)
+    time = models.DateTimeField(auto_now = True)
     text = models.TextField()
 
     def __unicode__(self):
@@ -14,8 +14,8 @@ class Update(models.Model):
 class Programme(models.Model):
     """Used to store the programme for a specific date"""
     text = models.TextField()
-    last_updated = models.DateTimeField(auto_now = True,)
-    date = models.DateField(auto_now = False,)
+    last_updated = models.DateTimeField(auto_now = True)
+    date = models.DateField(auto_now = False)
 
     def __unicode__(self):
         return self.date
@@ -25,7 +25,7 @@ class OfTheDay(models.Model):
     object_type = models.CharField(max_length = 10, default = "Photo")
     external_link = models.URLField(blank = True)
     image_link = models.URLField()
-    description = models.CharField(max_length = 200, blank = True,)
+    description = models.CharField(max_length = 200, blank = True)
 
     def __unicode__(self):
         return u'{0}, {1}'.format(self.object_type, self.description)
@@ -71,7 +71,7 @@ class Comment(models.Model):
 class Link(models.Model):
     """Used to store links which relate to articles"""
     article = models.ForeignKey("Article")
-    button_text = models.CharField(max_length = 100,)
+    button_text = models.CharField(max_length = 100)
     link = models.URLField()
 
     def __unicode__(self):
@@ -85,7 +85,7 @@ class Feedback(models.Model):
         ('MT', 'Media Team'),
     )
 
-    team = models.CharField(max_length=2, choices = team_choices,)
+    team = models.CharField(max_length=2, choices = team_choices)
     name = models.CharField(max_length = 50, blank = True)
     committee = models.CharField(max_length = 10, blank = True)
     text = models.TextField()
@@ -108,8 +108,8 @@ class House(models.Model):
 
 class Topic(models.Model):
     """Used to store topics and corresponding reationales"""
-    committee_name = models.CharField(max_length = 100,)
-    committee_acronym = models.CharField(max_length = 10,)
+    committee_name = models.CharField(max_length = 100)
+    committee_acronym = models.CharField(max_length = 10)
     topic = models.TextField()
     image_link = models.URLField(blank = True)
     video_embed_src = models.TextField(blank = True)
@@ -123,6 +123,9 @@ class Setting(models.Model):
     """ Used to store general settings like name of the website and colour """
     app_title = models.CharField(max_length = 25, default = "Leipzig 2015")
     app_colour = models.CharField(max_length = 50, default = "purple")
+    app_meta_description = models.TextField(blank = True)
+    app_analytics = models.TextField(blank = True)
+
 
     def __unicode__(self):
         return u'{0}, {1}'.format(self.app_title, self.app_colour)
