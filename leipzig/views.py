@@ -3,7 +3,7 @@ from django.shortcuts import render, render_to_response
 from django.contrib import messages
 
 
-from .models import Update, Programme, FeaturedItem, SongWish, Article, Comment, Link, Feedback, House, Topic, Setting
+from .models import Update, Programme, FeaturedItem, SongWish, Article, Comment, Link, Feedback, House, Topic, Setting, TeamMember
 from .forms import SongWishForm, FeedbackForm, CommentForm
 # Create your views here.
 
@@ -131,6 +131,12 @@ def topic_single(request, pk):
     topic = Topic.objects.get(pk=pk)
     context = {"topic": topic, "settings": settings}
     return render_to_response("topic_single.html", context)
+
+def team(request):
+    settings = Setting.objects.last()
+    team = TeamMember.objects.all().order_by("rank")
+    context = {"team": team, "settings": settings}
+    return render_to_response("team.html", context)
 
 
 ##### STATIC views

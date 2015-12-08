@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 
-from views import home, updates, programme, articles, article_single, song_wish, feedback, houses, topics, topic_single, partners, dictionary, phones, imprint, datenschutzerklaerung
+from views import home, updates, programme, articles, article_single, song_wish, feedback, houses, topics, topic_single, partners, dictionary, phones, imprint, datenschutzerklaerung, team
 
 urlpatterns = [
     url(r'^$', home, name='home'),
@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^houses/$', houses, name='houses'),
     url(r'^topics/$', topics, name='topics'),
     url(r'^topic/(?P<pk>[0-9]+)/$', topic_single, name='topic_single'),
+    url(r'^team/$', team, name='team'),
     url(r'^feedback/$', feedback, name='feedback'),
     url(r'^imprint/$', imprint, name='imprint'),
     url(r'^datenschutzerklaerung/$', datenschutzerklaerung, name='datenschutzerklaerung'),

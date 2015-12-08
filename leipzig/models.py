@@ -118,6 +118,14 @@ class Topic(models.Model):
     def __unicode__(self):
         return self.committee_acronym
 
+class TeamMember(models.Model):
+    """Used to store team members"""
+    name = models.CharField(max_length = 100)
+    role = models.CharField(max_length = 100)
+    tagline = models.TextField(blank = True)
+    rank = models.IntegerField(blank = True)
+    image_link = models.URLField()
+
 
 class Setting(models.Model):
     """ Used to store general settings like name of the website and colour """

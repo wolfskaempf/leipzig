@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Update, Programme, FeaturedItem, SongWish, Article, Comment, Link, Feedback, House, Topic, Setting
+from .models import Update, Programme, FeaturedItem, SongWish, Article, Comment, Link, Feedback, House, Topic, Setting, TeamMember
 
 
 class LinkAdmin(admin.ModelAdmin):
@@ -60,6 +60,11 @@ class TopicAdmin(admin.ModelAdmin):
     list_display = ("committee_acronym", "topic",)
     search_fields = ("committee_acronym", "topic",)
 
+class TeamMemberAdmin(admin.ModelAdmin):
+    """ Used to manage team members inside the Django Admin """
+    list_display = ("name", "rank", "role")
+    search_fields = ("name", "rank", "role")
+
 class CommentAdmin(admin.ModelAdmin):
     """ Used to manage comments inside the Django Admin """
     list_display = ("article", "name", "text", "timestamp")
@@ -82,6 +87,7 @@ admin.site.register(SongWish, SongWishAdmin)
 admin.site.register(Programme, ProgrammeAdmin)
 admin.site.register(Update, UpdateAdmin)
 admin.site.register(Topic, TopicAdmin)
+admin.site.register(TeamMember, TeamMemberAdmin)
 admin.site.register(Comment, CommentAdmin)
 admin.site.register(Link, LinkAdmin)
 admin.site.register(Setting, SettingAdmin)

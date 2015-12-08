@@ -7,8 +7,8 @@ from django.utils import timezone
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import AnonymousUser, User
 
-from views import home, updates, programme, articles, article_single, song_wish, feedback, houses, topics, topic_single, partners, dictionary, phones, imprint, datenschutzerklaerung
-from .models import Update, Programme, FeaturedItem, SongWish, Article, Comment, Link, Feedback, House, Topic, Setting
+from views import home, updates, programme, articles, article_single, song_wish, feedback, houses, topics, topic_single, team, partners, dictionary, phones, imprint, datenschutzerklaerung
+from .models import Update, Programme, FeaturedItem, SongWish, Article, Comment, Link, Feedback, House, Topic, Setting, TeamMember
 # Create your tests here.
 
 # Under me you will find the functions which can easily create demo content.
@@ -206,6 +206,21 @@ class FeedbackTestView(TestCase):
         response = self.client.get(reverse("leipzig:feedback"))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Submit")
+
+
+class TeamTestView(TestCase):
+    """
+    This TestCase contains all tests of the above mentioned View
+    """
+
+    def test_team_view_with_no_team(self):
+        """
+        When a user loads the team page with no team members in the database,
+        the page should still load and show the appropriate message.
+        """
+        response = self.client.get(reverse("leipzig:team"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "There are no team members in the database.")
 
 
 
