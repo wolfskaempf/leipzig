@@ -133,6 +133,7 @@ def topic_single(request, pk):
     return render_to_response("topic_single.html", context)
 
 def team(request):
+    """ Serves a list of all team members """
     settings = Setting.objects.last()
     team = TeamMember.objects.all().order_by("rank")
     context = {"team": team, "settings": settings}
