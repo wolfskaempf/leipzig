@@ -126,6 +126,9 @@ class TeamMember(models.Model):
     rank = models.IntegerField(blank = True)
     image_link = models.URLField()
 
+    def __unicode__(self):
+        return u'{0}, {1}'.format(self.name, self.role)
+
 
 class Setting(models.Model):
     """ Used to store general settings like name of the website and colour """
