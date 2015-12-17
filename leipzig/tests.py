@@ -121,6 +121,21 @@ class ArticleSingleViewTests(TestCase):
         self.assertContains(response, demo_article_image_link)
         self.assertContains(response, demo_article_video_embed_src)
 
+    def test_article_single_view_with_two_articles(self):
+        """
+        The article should be shown including all relevant information even if there are multiple articles in the database.
+        """
+        article2 = create_article(title = "Say Cheese World", author = "Max Mustermann", author_country = "Switzerland", published_on = demo_article_published_on, introduction = "That's all, folks", text = demo_article_text, external_link = "", image_link = "http://i.imgur.com/i2MolXA.jpg", video_embed_src = demo_article_video_embed_src)
+        response = self.client.get(reverse("leipzig:article_single", args = [self.article.pk]))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, demo_article_title)
+        self.assertContains(response, demo_article_author)
+        self.assertContains(response, demo_article_author_country)
+        self.assertContains(response, demo_article_introduction)
+        self.assertContains(response, demo_article_text)
+        self.assertContains(response, demo_article_image_link)
+        self.assertContains(response, demo_article_video_embed_src)
+
 
 class TopicViewTests(TestCase):
     """
