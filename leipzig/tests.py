@@ -47,7 +47,7 @@ class HomeViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "There is no programme available for today.")
         self.assertContains(response, "There are currently no updates.")
-        self.assertContains(response, "There is no photo of the day.")
+        self.assertContains(response, "There is no featured photo.")
 
 
 class ArticleListViewTests(TestCase):
