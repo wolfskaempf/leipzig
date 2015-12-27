@@ -14,6 +14,8 @@ To run this web app locally, clone the repository, cd into it and execute the fo
 
 `source bin/activate`
 
+`pip install -r requirements.txt`
+
 `python manage.py migrate`
 
 `python manage.py createsuperuser`
@@ -21,6 +23,8 @@ To run this web app locally, clone the repository, cd into it and execute the fo
 `python manage.py runserver`
 
 Please note that this is only a development server which should never be used for production scenarios.
+
+You can now login to the [admin area of your local development server](http://localhost:8000/admin/) and start creating sample content.
 
 ### Troubleshooting
 
