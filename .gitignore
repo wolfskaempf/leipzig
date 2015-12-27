@@ -1,5 +1,15 @@
 *.pyc
 *.sqlite3
+*.codekit
+bin/*
+include/*
+lib/*
+pip-selfcheck.json
+.Python
+.DS_Store
+
+config.codekit
+**/.sass-cache/*
 
 leipzig/static/leipzig/images/favicon.ai
 
