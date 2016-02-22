@@ -3,6 +3,9 @@ languages:
   JavaScript: true
   PHP: true
   Python: true
+dupliation:
+  enabled: false
 exclude_paths:
 - "leipzig/static/leipzig/js/"
 - "leipzig/migrations/"
+- "leipzig/tests.py"
