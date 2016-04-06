@@ -7,7 +7,7 @@ lib/*
 pip-selfcheck.json
 .Python
 .DS_Store
-static/
+/static/
 
 config.codekit
 **/.sass-cache/*
