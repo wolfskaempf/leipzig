@@ -1,7 +1,7 @@
 {% if articles %}
-<div class="row">
+<div class="row article-row">
   {% for article in articles %}
-  <div class="col-xs-12 col-sm-4">
+  <div class="col-xs-12 col-sm-4 article-item">
       <div class="panel panel-material-{{ settings.app_colour }}-500">
         <div class="panel-heading">
            <h3 class="panel-title">{{ article.title }}</h3>
@@ -28,7 +28,7 @@
         {% endif %}
       </div>
   </div>
-  {% cycle "" "" "</div><div class='row'>"%}
+  {% cycle "" "" "</div><div class='row article-row'>"%}
   {% endfor %}
 </div>
 {% endif %}

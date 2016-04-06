@@ -3,6 +3,11 @@ html, body {
   height: 100%;
 }
 
+// p {
+//   margin-top: 20px;
+//   margin-bottom: 10px;
+// }
+
 .article {
   .lead {
     font-size: 21px;
@@ -18,6 +23,21 @@ html, body {
   }
 }
 
+.article-row {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.article-item {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
 
 .house {
   .house-no-margin {
