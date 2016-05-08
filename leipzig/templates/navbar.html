@@ -16,52 +16,11 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
 
+        {% for navbar_entry in navbar_entries %}
         <li>
-          <a href="https://mm.proximity.press" target="_blank">Mattermost</a>
+          <a href="{{ navbar_entry.link }}" target="_blank">{{ navbar_entry.name }}</a>
         </li>
-
-        <li>
-          <a href="https://salzburg2016.tumblr.com" target="_blank">Tumblr</a>
-        </li>
-
-
-        <li>
-          <a href="{% url 'leipzig:articles' %}">All Output</a>
-        </li>
-
-        <li>
-          <a href="{% url 'leipzig:team' %}">Our Team</a>
-        </li>
-
-
-        <!-- <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Interactive <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li>
-              <a href="{% url 'leipzig:song_wish' %}">Song Wishes</a>
-            </li>
-            <li>
-              <a href="{% url 'leipzig:feedback' %}">Give Feedback</a>
-            </li>          </ul>
-        </li> -->
-
-
-
-        <!-- <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Info <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li>
-              <a href="{% url 'leipzig:programme' %}">Up To Date Programme</a>
-            </li>
-            <li>
-              <a href="{% url 'leipzig:updates' %}">All Latest Updates</a>
-            </li>
-            <li>
-              <a href="{% url 'leipzig:phones' %}">Useful Phone Numbers</a>
-            </li> -->
-            <!-- <li>
-              <a href="{% url 'leipzig:partners' %}">Partners</a>
-            </li> -->
+        {% endfor %} <!-- for navbar_entries -->
           </ul>
         </li>
 
