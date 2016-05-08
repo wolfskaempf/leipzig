@@ -13,7 +13,7 @@ def home(request):
     view = "home" # This is used to determine whether some buttons should be shown in the latest updates part of the home page
 
     settings = Setting.objects.last()
-    navbar_entries = NavbarEntry.objects.all()
+    navbar_entries = NavbarEntry.objects.filter(active = True).order_by("order")
 
     updates = Update.objects.all() # Here we get all updates so we can count them
     update_count = updates.count() # here we assign the total number of updates to the update_count
@@ -40,7 +40,7 @@ def home(request):
 def updates(request):
     """ Serves the latest updates """
     settings = Setting.objects.last()
-    navbar_entries = NavbarEntry.objects.all()
+    navbar_entries = NavbarEntry.objects.filter(active = True).order_by("order")
 
     updates = Update.objects.all().order_by("-time")
     context = {"updates": updates, "settings": settings, "navbar_entries": navbar_entries}
@@ -50,7 +50,7 @@ def updates(request):
 def programme(request):
     """ Serves the programme """
     settings = Setting.objects.last()
-    navbar_entries = NavbarEntry.objects.all()
+    navbar_entries = NavbarEntry.objects.filter(active = True).order_by("order")
 
     programmes = Programme.objects.all().order_by("date")
 
@@ -61,7 +61,7 @@ def programme(request):
 def articles(request):
     """ Serves a list of all articles """
     settings = Setting.objects.last()
-    navbar_entries = NavbarEntry.objects.all()
+    navbar_entries = NavbarEntry.objects.filter(active = True).order_by("order")
 
     articles = Article.objects.filter(published=True).order_by("-published_on")
     context = {"articles": articles, "settings": settings}
@@ -72,7 +72,7 @@ def articles(request):
 def article_single(request, pk):
     """ Serves a single article """
     settings = Setting.objects.last()
-    navbar_entries = NavbarEntry.objects.all()
+    navbar_entries = NavbarEntry.objects.filter(active = True).order_by("order")
 
     form = CommentForm
     article = Article.objects.get(pk=pk)
@@ -93,7 +93,7 @@ def article_single(request, pk):
 def song_wish(request):
     """ Handles song wishes and provides a form """
     settings = Setting.objects.last()
-    navbar_entries = NavbarEntry.objects.all()
+    navbar_entries = NavbarEntry.objects.filter(active = True).order_by("order")
 
 
     form = SongWishForm
@@ -111,7 +111,7 @@ def song_wish(request):
 def feedback(request):
     """ Handles feedback and provides a form """
     settings = Setting.objects.last()
-    navbar_entries = NavbarEntry.objects.all()
+    navbar_entries = NavbarEntry.objects.filter(active = True).order_by("order")
 
     form = FeedbackForm
     context = {"form": form, "settings": settings, "navbar_entries": navbar_entries}
@@ -128,7 +128,7 @@ def feedback(request):
 def houses(request):
     """ Serves a list of all houses and their points """
     settings = Setting.objects.last()
-    navbar_entries = NavbarEntry.objects.all()
+    navbar_entries = NavbarEntry.objects.filter(active = True).order_by("order")
 
     houses = House.objects.all().order_by("-points")
     context = {"houses": houses, "settings": settings, "navbar_entries": navbar_entries}
@@ -137,7 +137,7 @@ def houses(request):
 def topics(request):
     """ Serves a list of all topics """
     settings = Setting.objects.last()
-    navbar_entries = NavbarEntry.objects.all()
+    navbar_entries = NavbarEntry.objects.filter(active = True).order_by("order")
 
     topics = Topic.objects.all().order_by("committee_acronym")
     context = {"topics": topics, "settings": settings, "navbar_entries": navbar_entries}
@@ -146,7 +146,7 @@ def topics(request):
 def topic_single(request, pk):
     """ Serves a single topic and its rationales """
     settings = Setting.objects.last()
-    navbar_entries = NavbarEntry.objects.all()
+    navbar_entries = NavbarEntry.objects.filter(active = True).order_by("order")
 
     topic = Topic.objects.get(pk=pk)
     context = {"topic": topic, "settings": settings, "navbar_entries": navbar_entries}
@@ -155,7 +155,7 @@ def topic_single(request, pk):
 def team(request):
     """ Serves a list of all team members """
     settings = Setting.objects.last()
-    navbar_entries = NavbarEntry.objects.all()
+    navbar_entries = NavbarEntry.objects.filter(active = True).order_by("order")
 
     team = TeamMember.objects.all().order_by("rank")
     context = {"team": team, "settings": settings, "navbar_entries": navbar_entries}
@@ -167,7 +167,7 @@ def team(request):
 def partners(request):
     """ Shows the static partners.html """
     settings = Setting.objects.last()
-    navbar_entries = NavbarEntry.objects.all()
+    navbar_entries = NavbarEntry.objects.filter(active = True).order_by("order")
 
     context = {"settings": settings, "navbar_entries": navbar_entries}
     return render_to_response("partners.html", context)
@@ -175,7 +175,7 @@ def partners(request):
 def dictionary(request):
     """ Shows the static dictionary.html """
     settings = Setting.objects.last()
-    navbar_entries = NavbarEntry.objects.all()
+    navbar_entries = NavbarEntry.objects.filter(active = True).order_by("order")
 
     context = {"settings": settings, "navbar_entries": navbar_entries}
     return render_to_response("dictionary.html", context)
@@ -183,7 +183,7 @@ def dictionary(request):
 def phones(request):
     """ Shows the static phones.html """
     settings = Setting.objects.last()
-    navbar_entries = NavbarEntry.objects.all()
+    navbar_entries = NavbarEntry.objects.filter(active = True).order_by("order")
 
     context = {"settings": settings, "navbar_entries": navbar_entries}
     return render_to_response("phones.html", context)
@@ -191,7 +191,7 @@ def phones(request):
 def imprint(request):
     """ Shows the static imprint.html """
     settings = Setting.objects.last()
-    navbar_entries = NavbarEntry.objects.all()
+    navbar_entries = NavbarEntry.objects.filter(active = True).order_by("order")
 
     context = {"settings": settings, "navbar_entries": navbar_entries}
     return render_to_response("imprint.html", context)
@@ -199,7 +199,7 @@ def imprint(request):
 def datenschutzerklaerung(request):
     """ Shows the static datenschutzerklaerung.html """
     settings = Setting.objects.last()
-    navbar_entries = NavbarEntry.objects.all()
+    navbar_entries = NavbarEntry.objects.filter(active = True).order_by("order")
 
     context = {"settings": settings, "navbar_entries": navbar_entries}
     return render_to_response("datenschutzerklaerung.html", context)
