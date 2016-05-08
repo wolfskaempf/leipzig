@@ -81,7 +81,7 @@ class NavbarEntryAdmin(admin.ModelAdmin):
     """ Used to manage NavbarEntries inside the Django Admin """
     list_display = ("name", "link", "order", "active")
     search_fields = ("name", "link", "order", "active")
-    list_filter = ("name", "link", "order", "active")
+    list_filter = ("name", "active")
 
 
 
