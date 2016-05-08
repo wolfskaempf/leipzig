@@ -141,3 +141,9 @@ class Setting(models.Model):
 
     def __unicode__(self):
         return u'{0}, {1}'.format(self.app_title, self.app_colour)
+
+class Navbar(models.Model):
+    """ Used to display navbar entries """
+    name = models.CharField(max_length=20)
+    link = models.URLField()
+    active = models.BooleanField(default = True)
