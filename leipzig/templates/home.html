@@ -12,56 +12,7 @@ Home
   {% include "article_list_widget.html" %}
 </div>
 
-<div class="row">
-  <div class="col-sm-4">
-    <div class="panel panel-material-{{ settings.app_colour }}-500">
-        <div class="panel-heading">
-          {% if daily %}
-            <h3 class="panel-title">Featured {{ daily.object_type }}</h3>
-            <small>{{ daily.description }}</small>
-          {% else %}
-            <h3 class="panel-title">Featured Photo</h3>
-          {% endif %}
-        </div> <!-- .panel-heading -->
-        {% if daily %}
-        <img class='img-responsive' src="{{ daily.image_link }}" alt="{{ daily.object_type }} of the day" />
-            {% if daily.external_link %}
-              <div class="panel-body">
-                <a target="_blank" href="{{ daily.external_link }}"><button class="btn btn-material-{{ settings.app_colour }}-300 col-xs-12 margin-15">View {{ daily.object_type }}</button></a>
-              </div>
-            {% endif %}
-          {% else %}
-          <div class="panel-body">
-              <p>
-                There is no featured photo.
-              </p>
-            </div>
-          {% endif %}
-    </div> <!-- .panel -->
-  </div> <!-- .col-md-6 -->
-
-
-<div class="col-sm-4">
-  {% include "update_widget.html" %}
-</div> <!-- .col-sm-4 -->
-
-<div class="col-sm-4">
-{% if programme %}
-  {% include "programme_widget.html" %}
-{% else %}
-<div class="panel panel-material-{{ settings.app_colour }}-500">
-  <div class="panel-heading">
-    <h3 class="panel-title">Latest Programme</small>
-  </div>
-  <div class="panel-body">
-    <p>
-      There is no programme available for today.
-    </p>
-  </div>
-</div>
-{% endif %}
-</div> <!-- .col-md-6 -->
-
+{% include "orgasection.html" %}
 
 </div> <!-- .row -->
 
