@@ -3,7 +3,7 @@ from django.shortcuts import render, render_to_response
 from django.contrib import messages
 
 
-from .models import Update, Programme, FeaturedItem, SongWish, Article, Comment, Link, Feedback, House, Topic, Setting, TeamMember
+from .models import Update, Programme, FeaturedItem, SongWish, Article, Comment, Link, Feedback, House, Topic, Setting, TeamMember, NavbarEntry
 from .forms import SongWishForm, FeedbackForm, CommentForm
 # Create your views here.
 

@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Update, Programme, FeaturedItem, SongWish, Article, Comment, Link, Feedback, House, Topic, Setting, TeamMember
+from .models import Update, Programme, FeaturedItem, SongWish, Article, Comment, Link, Feedback, House, Topic, Setting, TeamMember, NavbarEntry
 
 
 class LinkAdmin(admin.ModelAdmin):
@@ -77,6 +77,12 @@ class SettingAdmin(admin.ModelAdmin):
     search_fields = ("app_title", "app_colour")
     list_filter = ("app_title", "app_colour")
 
+class NavbarEntryAdmin(admin.ModelAdmin):
+    """ Used to manage NavbarEntries inside the Django Admin """
+    list_display = ("name", "link", "order", "active")
+    search_fields = ("name", "link", "order", "active")
+    list_filter = ("name", "link", "order", "active")
+
 
 
 admin.site.register(Article, ArticleAdmin)
@@ -91,3 +97,4 @@ admin.site.register(TeamMember, TeamMemberAdmin)
 admin.site.register(Comment, CommentAdmin)
 admin.site.register(Link, LinkAdmin)
 admin.site.register(Setting, SettingAdmin)
+admin.site.register(NavbarEntry, NavbarEntryAdmin)
