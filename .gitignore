@@ -12,6 +12,13 @@ pip-selfcheck.json
 config.codekit
 **/.sass-cache/*
 
+media/*
+media/
+
+article_pictures/
+featured_pictures/
+team_pictures/
+
 leipzig/static/leipzig/images/favicon.ai
 
 leipzig/static/leipzig/images/apple-touch-icon.png
