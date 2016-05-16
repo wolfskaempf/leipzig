@@ -20,7 +20,7 @@ with open('/etc/secretkey.txt') as f:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["proximity.press"]
+ALLOWED_HOSTS = ["vivacity.press"]
 
 CSRF_COOKIE_SECURE = True
 
@@ -75,14 +75,20 @@ WSGI_APPLICATION = 'leipzigcore.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-with open('/etc/databases.txt') as f:
+with open(os.path.join(BASE_DIR, "config", "db_name.dbconfig")) as f:
+    DB_NAME = f.read().strip()
+
+with open(os.path.join(BASE_DIR, "config", "db_user.dbconfig")) as f:
+    DB_USER = f.read().strip()
+
+with open(os.path.join(BASE_DIR, "config", "db_password.dbconfig")) as f:
     DB_PASSWORD = f.read().strip()
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'proximity',
-        'USER': 'django',
+        'NAME': DB_NAME,
+        'USER': DB_USER,
         'PASSWORD': DB_PASSWORD,
         'HOST': '127.0.0.1',
         'PORT': '5432',
