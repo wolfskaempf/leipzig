@@ -9,8 +9,8 @@
 {% block content %}
 
 </div>
-{% if article.image_link %}
-  <div class="col-xs-12" style="background: url('{{ article.image_link }}') no-repeat center/cover; height: 70%; margin-bottom: 10px; margin-top: -20px">
+{% if article.image %}
+  <div class="col-xs-12" style="background: url('{{ article.image.url }}') no-repeat center/cover; height: 70%; margin-bottom: 10px; margin-top: -20px">
   </div>
 {% endif %}
 

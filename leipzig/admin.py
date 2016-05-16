@@ -23,8 +23,8 @@ class ArticleAdmin(admin.ModelAdmin):
 
 class FeaturedItemAdmin(admin.ModelAdmin):
     """ Used to manage featured objects in the Django admin """
-    list_display = ("description", "pk", "image_link")
-    search_fields = ("description", "pk", "image_link")
+    list_display = ("description", "pk", "image")
+    search_fields = ("description", "pk", "image")
 
 
 class FeedbackAdmin(admin.ModelAdmin):

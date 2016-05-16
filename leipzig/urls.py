@@ -14,6 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 from django.conf.urls import url
+from django.conf.urls.static import static
+from django.conf import settings
 
 from views import home, updates, programme, articles, article_single, song_wish, feedback, houses, topics, topic_single, partners, dictionary, phones, imprint, datenschutzerklaerung, team
 
@@ -35,3 +37,6 @@ urlpatterns = [
     url(r'^imprint/$', imprint, name='imprint'),
     url(r'^datenschutzerklaerung/$', datenschutzerklaerung, name='datenschutzerklaerung'),
 ]
+
+if settings.DEBUG is True:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

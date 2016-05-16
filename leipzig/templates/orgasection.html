@@ -10,7 +10,7 @@
           {% endif %}
         </div> <!-- .panel-heading -->
         {% if daily %}
-        <img class='img-responsive' src="{{ daily.image_link }}" alt="{{ daily.object_type }} of the day" />
+        <img class='img-responsive' src="{{ daily.image.url }}" alt="{{ daily.object_type }} of the day" />
             {% if daily.external_link %}
               <div class="panel-body">
                 <a target="_blank" href="{{ daily.external_link }}"><button class="btn btn-material-{{ settings.app_colour }}-300 col-xs-12 margin-15">View {{ daily.object_type }}</button></a>

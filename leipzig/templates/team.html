@@ -21,8 +21,8 @@ Team
       <div class="panel-heading">
          <h3 class="panel-title">{{ member.role }}</h3>
       </div>
-      {% if member.image_link %}
-      <div class="col-xs-12" style="background: url('{{ member.image_link }}') no-repeat center/cover; height: 300px; margin-bottom: 10px;">
+      {% if member.image %}
+      <div class="col-xs-12" style="background: url('{{ member.image.url }}') no-repeat center/cover; height: 300px; margin-bottom: 10px;">
       </div>
       {% endif %}
       <div class="panel-body">

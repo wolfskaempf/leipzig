@@ -7,8 +7,8 @@
            <h3 class="panel-title">{{ article.title }}</h3>
            <small>Published on {{ article.published_on|date:"l, N jS" }} by {{ article.author }}</small>
         </div>
-        {% if article.image_link %}
-        <div class="col-xs-12" style="background: url('{{ article.image_link }}') no-repeat center/cover; height: 150px; margin-bottom: 10px;">
+        {% if article.image %}
+        <div class="col-xs-12" style="background: url('{{ article.image.url }}') no-repeat center/cover; height: 150px; margin-bottom: 10px;">
         </div>
         {% endif %}
         <div class="panel-body">

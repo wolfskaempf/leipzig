@@ -24,7 +24,7 @@ class FeaturedItem(models.Model):
     """Used to store information about a of the day object"""
     object_type = models.CharField(max_length = 10, default = "Photo")
     external_link = models.URLField(blank = True)
-    image_link = models.URLField()
+    image = models.ImageField(upload_to='featured_pictures/', blank = True)
     description = models.CharField(max_length = 200, blank = True)
 
     def __unicode__(self):
@@ -51,7 +51,7 @@ class Article(models.Model):
     introduction = models.TextField()
     text = models.TextField()
     external_link = models.URLField(blank = True)
-    image_link = models.URLField(blank = True)
+    image = models.ImageField(upload_to='article_pictures/', blank = True)
     video_embed_src = models.TextField(blank = True)
     committee_tag = models.CharField(blank = True, max_length = 10)
 
@@ -124,7 +124,7 @@ class TeamMember(models.Model):
     role = models.CharField(max_length = 100)
     tagline = models.TextField(blank = True)
     rank = models.IntegerField(blank = True)
-    image_link = models.URLField()
+    image = models.ImageField(upload_to='team_pictures/', blank = True)
 
     def __unicode__(self):
         return u'{0}, {1}'.format(self.name, self.role)
