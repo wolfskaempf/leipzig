@@ -64,7 +64,7 @@ def articles(request):
     navbar_entries = NavbarEntry.objects.filter(active = True).order_by("order")
 
     articles = Article.objects.filter(published=True).order_by("-published_on")
-    context = {"articles": articles, "settings": settings}
+    context = {"articles": articles, "settings": settings, "navbar_entries": navbar_entries}
 
     return render_to_response("article_list.html", context)
 
