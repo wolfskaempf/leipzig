@@ -147,4 +147,5 @@ class NavbarEntry(models.Model):
     name = models.CharField(max_length=20)
     link = models.URLField()
     active = models.BooleanField(default = True)
+    blank = models.BooleanField(default = True)
     order = models.IntegerField(blank = True) # the lower the number, the farther left the entry will be

@@ -18,7 +18,7 @@
 
         {% for navbar_entry in navbar_entries %}
         <li>
-          <a href="{{ navbar_entry.link }}" target="_blank">{{ navbar_entry.name }}</a>
+          <a href="{{ navbar_entry.link }}" {% if navbar_entry.blank %}target="_blank"{% endif %}>{{ navbar_entry.name }}</a>
         </li>
         {% endfor %} <!-- for navbar_entries -->
           </ul>
