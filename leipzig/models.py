@@ -18,7 +18,7 @@ class Programme(models.Model):
     date = models.DateField(auto_now = False)
 
     def __unicode__(self):
-        return self.date
+        return unicode(self.date)
 
 class FeaturedItem(models.Model):
     """Used to store information about a of the day object"""
